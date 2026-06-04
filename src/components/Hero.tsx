@@ -443,7 +443,7 @@ const Hero: React.FC = () => {
           }
 
           .pw-hero__badge {
-            margin-top: -80px;
+            margin-top: -30px;
           }
 
           .pw-hero__headline {
@@ -475,7 +475,7 @@ const Hero: React.FC = () => {
           }
 
           .pw-hero__stats {
-            margin-top: 40px;
+            margin-top: 20px;
             gap: 18px;
             transform: translateX(0);
             justify-content: center;
