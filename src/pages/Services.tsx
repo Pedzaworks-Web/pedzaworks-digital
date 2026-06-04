@@ -187,11 +187,6 @@ export default function Services() {
         <div className="container-custom">
           <div className="pw-grid-hero">
             <div ref={reveal} data-reveal>
-              <div className="pw-eyebrow">
-                <span className="pw-eyebrow-dot pw-eyebrow-dot--pulse" />
-                Services
-              </div>
-
               <h1 className="pw-heading pw-heading--hero">
                 <span className="pw-heading__line">
                   Engineering Software For

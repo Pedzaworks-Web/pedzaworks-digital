@@ -216,24 +216,6 @@ const Navbar: React.FC = () => {
               </ul>
             </section>
 
-            <section className="pw-mobile__card pw-mobile__card--soft">
-              <p className="pw-mobile__section-label">Pedzaworks</p>
-              <div className="pw-mobile__info-list">
-                <div className="pw-mobile__info-row">
-                  <span className="pw-mobile__info-title">Focus</span>
-                  <span className="pw-mobile__info-text">
-                    Operational software systems
-                  </span>
-                </div>
-                <div className="pw-mobile__info-row">
-                  <span className="pw-mobile__info-title">Delivery</span>
-                  <span className="pw-mobile__info-text">
-                    Connected infrastructure & digital platforms
-                  </span>
-                </div>
-              </div>
-            </section>
-
             <div className="pw-mobile__footer">
               <a
                 href="/#systems-showcase"
@@ -245,9 +227,6 @@ const Navbar: React.FC = () => {
               <a href="/contact" className="pw-mobile__cta" onClick={closeMenu}>
                 Get in Touch
               </a>
-              <p className="pw-mobile__tagline">
-                Intelligent Systems. Connected Infrastructure.
-              </p>
             </div>
           </div>
         </div>
