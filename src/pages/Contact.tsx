@@ -6,7 +6,7 @@ import {
   ClipboardList,
   ChevronDown,
 } from "lucide-react";
-
+import SEO from "../components/SEO";
 export default function Contact() {
   const revealRefs = useRef<HTMLElement[]>([]);
 
@@ -71,293 +71,327 @@ export default function Contact() {
   ];
 
   return (
-    <main className="pw-contact">
-      <div className="pw-contact__bg-grid" />
-      <div className="pw-contact__bg-glow" />
-      <div className="pw-contact__top-rule" />
+    <>
+      <SEO
+        title="Contact"
+        description="Contact Pedzaworks Digital Solutions to discuss operational software systems, workflow platforms, connected infrastructure, and digital experiences tailored to your organisation."
+        url="https://www.pedzaworks.com/contact"
+        keywords={[
+          "contact Pedzaworks",
+          "operational software inquiry",
+          "workflow platform project",
+          "connected infrastructure contact",
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact | Pedzaworks Digital Solutions",
+          url: "https://www.pedzaworks.com/contact",
+          description:
+            "Get in touch with Pedzaworks Digital Solutions to discuss operational software systems, workflow platforms, and connected infrastructure.",
+        }}
+      />
+      <main className="pw-contact">
+        <div className="pw-contact__bg-grid" />
+        <div className="pw-contact__bg-glow" />
+        <div className="pw-contact__top-rule" />
 
-      {/* CONTACT FORM */}
-      <section id="contact-form" className="pw-contact__section">
-        <div className="pw-contact__container">
-          <header
-            ref={reveal}
-            data-reveal
-            className="pw-contact__section-header"
-          >
-            <div className="pw-contact__eyebrow">
-              <span className="pw-contact__eyebrow-dot" />
-              Project Inquiry
-            </div>
-
-            <h1 className="pw-contact__heading">
-              Share How Your <mark>Operations Work.</mark>
-            </h1>
-
-            <p className="pw-contact__lead">
-              The more we understand about your workflows, teams, and current
-              systems, the better we can design software that supports real
-              operational outcomes.
-            </p>
-          </header>
-
-          <div className="pw-contact__form-grid">
-            <form
-              ref={reveal as any}
+        {/* CONTACT FORM */}
+        <section id="contact-form" className="pw-contact__section">
+          <div className="pw-contact__container">
+            <header
+              ref={reveal}
               data-reveal
-              className="pw-contact__form"
-              onSubmit={(e) => {
-                e.preventDefault();
-              }}
+              className="pw-contact__section-header"
             >
-              <div className="pw-contact__form-shell">
-                <div className="pw-contact__form-topline">
-                  <span className="pw-contact__topline-dot" />
-                  <span>Operational Contact Brief</span>
-                </div>
+              <div className="pw-contact__eyebrow">
+                <span className="pw-contact__eyebrow-dot" />
+                Project Inquiry
+              </div>
 
-                <div className="pw-contact__field-row">
+              <h1 className="pw-contact__heading">
+                Share How Your <mark>Operations Work.</mark>
+              </h1>
+
+              <p className="pw-contact__lead">
+                The more we understand about your workflows, teams, and current
+                systems, the better we can design software that supports real
+                operational outcomes.
+              </p>
+            </header>
+
+            <div className="pw-contact__form-grid">
+              <form
+                ref={reveal as any}
+                data-reveal
+                className="pw-contact__form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                <div className="pw-contact__form-shell">
+                  <div className="pw-contact__form-topline">
+                    <span className="pw-contact__topline-dot" />
+                    <span>Operational Contact Brief</span>
+                  </div>
+
+                  <div className="pw-contact__field-row">
+                    <div className="pw-contact__field">
+                      <label className="pw-contact__label" htmlFor="full-name">
+                        Full Name
+                        <span>*</span>
+                      </label>
+                      <input
+                        id="full-name"
+                        type="text"
+                        name="name"
+                        required
+                        className="pw-contact__input"
+                        placeholder="Your full name"
+                      />
+                    </div>
+
+                    <div className="pw-contact__field">
+                      <label
+                        className="pw-contact__label"
+                        htmlFor="organization"
+                      >
+                        Organization
+                      </label>
+                      <input
+                        id="organization"
+                        type="text"
+                        name="organization"
+                        className="pw-contact__input"
+                        placeholder="Company or institution"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="pw-contact__field-row">
+                    <div className="pw-contact__field">
+                      <label className="pw-contact__label" htmlFor="email">
+                        Email
+                        <span>*</span>
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        required
+                        className="pw-contact__input"
+                        placeholder="name@organisation.com"
+                      />
+                    </div>
+
+                    <div className="pw-contact__field">
+                      <label
+                        className="pw-contact__label"
+                        htmlFor="project-type"
+                      >
+                        Project Type
+                      </label>
+                      <select
+                        id="project-type"
+                        name="projectType"
+                        className="pw-contact__select"
+                        defaultValue=""
+                      >
+                        <option value="">Select a project type</option>
+                        <option>Custom Software System</option>
+                        <option>Operational Platform</option>
+                        <option>Workflow Automation</option>
+                        <option>Systems Integration</option>
+                        <option>Connected Infrastructure</option>
+                        <option>Business Website</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                  </div>
+
                   <div className="pw-contact__field">
-                    <label className="pw-contact__label" htmlFor="full-name">
-                      Full Name
+                    <label className="pw-contact__label" htmlFor="message">
+                      Message
                       <span>*</span>
                     </label>
-                    <input
-                      id="full-name"
-                      type="text"
-                      name="name"
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={6}
                       required
-                      className="pw-contact__input"
-                      placeholder="Your full name"
+                      className="pw-contact__textarea"
+                      placeholder="Describe your current operations, the constraints you are facing, and what you want to improve."
                     />
                   </div>
 
-                  <div className="pw-contact__field">
-                    <label className="pw-contact__label" htmlFor="organization">
-                      Organization
-                    </label>
-                    <input
-                      id="organization"
-                      type="text"
-                      name="organization"
-                      className="pw-contact__input"
-                      placeholder="Company or institution"
-                    />
-                  </div>
+                  <footer className="pw-contact__form-footer">
+                    <button type="submit" className="pw-contact__cta-primary">
+                      <span className="pw-contact__cta-shimmer" />
+                      <span className="pw-contact__cta-content">
+                        Send Project Inquiry
+                        <ArrowRight size={15} strokeWidth={2.2} />
+                      </span>
+                    </button>
+
+                    <div className="pw-contact__form-note">
+                      <CalendarClock size={16} strokeWidth={1.7} />
+                      <p>
+                        We typically respond to new inquiries within 1–2
+                        business days with next steps and a suggested
+                        conversation time.
+                      </p>
+                    </div>
+                  </footer>
                 </div>
+              </form>
 
-                <div className="pw-contact__field-row">
-                  <div className="pw-contact__field">
-                    <label className="pw-contact__label" htmlFor="email">
-                      Email
-                      <span>*</span>
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      name="email"
-                      required
-                      className="pw-contact__input"
-                      placeholder="name@organisation.com"
-                    />
-                  </div>
+              <aside
+                ref={reveal}
+                data-reveal
+                className="pw-contact__side-panel"
+              >
+                <div className="pw-contact__side-panel-inner">
+                  <header className="pw-contact__side-header">
+                    <div className="pw-contact__side-icon-wrap">
+                      <ClipboardList size={18} strokeWidth={1.8} />
+                    </div>
 
-                  <div className="pw-contact__field">
-                    <label className="pw-contact__label" htmlFor="project-type">
-                      Project Type
-                    </label>
-                    <select
-                      id="project-type"
-                      name="projectType"
-                      className="pw-contact__select"
-                      defaultValue=""
-                    >
-                      <option value="">Select a project type</option>
-                      <option>Custom Software System</option>
-                      <option>Operational Platform</option>
-                      <option>Workflow Automation</option>
-                      <option>Systems Integration</option>
-                      <option>Connected Infrastructure</option>
-                      <option>Business Website</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                </div>
+                    <div>
+                      <p className="pw-contact__side-kicker">
+                        What happens after you reach out
+                      </p>
+                      <p className="pw-contact__side-title">
+                        {" "}
+                        Here's Step by Step
+                      </p>
+                    </div>
+                  </header>
 
-                <div className="pw-contact__field">
-                  <label className="pw-contact__label" htmlFor="message">
-                    Message
-                    <span>*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    required
-                    className="pw-contact__textarea"
-                    placeholder="Describe your current operations, the constraints you are facing, and what you want to improve."
-                  />
-                </div>
+                  <ol className="pw-contact__steps">
+                    <li>
+                      <span className="pw-contact__step-index">01</span>
+                      <div>
+                        <h3>Operational context</h3>
+                        <p>
+                          We review your message, current systems, and
+                          operational challenges to understand where software
+                          can help.
+                        </p>
+                      </div>
+                    </li>
 
-                <footer className="pw-contact__form-footer">
-                  <button type="submit" className="pw-contact__cta-primary">
-                    <span className="pw-contact__cta-shimmer" />
-                    <span className="pw-contact__cta-content">
-                      Send Project Inquiry
-                      <ArrowRight size={15} strokeWidth={2.2} />
-                    </span>
+                    <li>
+                      <span className="pw-contact__step-index">02</span>
+                      <div>
+                        <h3>Initial conversation</h3>
+                        <p>
+                          We schedule a call to walk through your workflows,
+                          decision points, and constraints in more detail.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li>
+                      <span className="pw-contact__step-index">03</span>
+                      <div>
+                        <h3>Proposed approach</h3>
+                        <p>
+                          You receive a clear outline of potential solutions,
+                          scope, and how we can help improve operations over
+                          time.
+                        </p>
+                      </div>
+                    </li>
+                  </ol>
+
+                  <button
+                    type="button"
+                    className="pw-contact__btn-ghost"
+                    onClick={() => {
+                      const el = document.getElementById("contact-final-cta");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    Explore Next Steps
+                    <ArrowRight size={14} strokeWidth={2.1} />
                   </button>
-
-                  <div className="pw-contact__form-note">
-                    <CalendarClock size={16} strokeWidth={1.7} />
-                    <p>
-                      We typically respond to new inquiries within 1–2 business
-                      days with next steps and a suggested conversation time.
-                    </p>
-                  </div>
-                </footer>
-              </div>
-            </form>
-
-            <aside ref={reveal} data-reveal className="pw-contact__side-panel">
-              <div className="pw-contact__side-panel-inner">
-                <header className="pw-contact__side-header">
-                  <div className="pw-contact__side-icon-wrap">
-                    <ClipboardList size={18} strokeWidth={1.8} />
-                  </div>
-
-                  <div>
-                    <p className="pw-contact__side-kicker">
-                      What happens after you reach out
-                    </p>
-                    <p className="pw-contact__side-title">
-                      {" "}
-                      Here's Step by Step
-                    </p>
-                  </div>
-                </header>
-
-                <ol className="pw-contact__steps">
-                  <li>
-                    <span className="pw-contact__step-index">01</span>
-                    <div>
-                      <h3>Operational context</h3>
-                      <p>
-                        We review your message, current systems, and operational
-                        challenges to understand where software can help.
-                      </p>
-                    </div>
-                  </li>
-
-                  <li>
-                    <span className="pw-contact__step-index">02</span>
-                    <div>
-                      <h3>Initial conversation</h3>
-                      <p>
-                        We schedule a call to walk through your workflows,
-                        decision points, and constraints in more detail.
-                      </p>
-                    </div>
-                  </li>
-
-                  <li>
-                    <span className="pw-contact__step-index">03</span>
-                    <div>
-                      <h3>Proposed approach</h3>
-                      <p>
-                        You receive a clear outline of potential solutions,
-                        scope, and how we can help improve operations over time.
-                      </p>
-                    </div>
-                  </li>
-                </ol>
-
-                <button
-                  type="button"
-                  className="pw-contact__btn-ghost"
-                  onClick={() => {
-                    const el = document.getElementById("contact-final-cta");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Explore Next Steps
-                  <ArrowRight size={14} strokeWidth={2.1} />
-                </button>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section
-        id="contact-faq"
-        className="pw-contact__section pw-contact__section--soft"
-      >
-        <div className="pw-contact__container">
-          <header
-            ref={reveal}
-            data-reveal
-            className="pw-contact__section-header"
-          >
-            <div className="pw-contact__eyebrow">
-              <span className="pw-contact__eyebrow-dot" />
-              FAQ
+                </div>
+              </aside>
             </div>
-
-            <h2 className="pw-contact__heading">
-              Questions About <mark>Working With Pedzaworks.</mark>
-            </h2>
-
-            <p className="pw-contact__lead">
-              These questions cover how we approach projects, what we build, and
-              how we support organisations before, during, and after delivery.
-            </p>
-          </header>
-
-          <div ref={reveal} data-reveal className="pw-contact__faq-grid">
-            <div className="pw-contact__faq-list">
-              {faqItems.map((item, idx) => (
-                <details
-                  key={item.q}
-                  className="pw-contact__faq-item"
-                  open={idx === 0}
-                >
-                  <summary className="pw-contact__faq-summary">
-                    <span className="pw-contact__faq-q">{item.q}</span>
-                    <span className="pw-contact__faq-icon">
-                      <ChevronDown size={16} strokeWidth={1.8} />
-                    </span>
-                  </summary>
-
-                  <div className="pw-contact__faq-body">
-                    <p>{item.a}</p>
-                  </div>
-                </details>
-              ))}
-            </div>
-
-            <aside className="pw-contact__faq-panel">
-              <div className="pw-contact__faq-panel-grid" />
-              <p className="pw-contact__faq-panel-kicker">
-                Built around operations, not guesswork.
-              </p>
-              <p className="pw-contact__faq-panel-body">
-                We treat every project as part of your operational
-                infrastructure. That means understanding constraints, designing
-                for long-term maintainability, and ensuring the systems we
-                deliver can evolve with your organisation.
-              </p>
-              <p className="pw-contact__faq-panel-body">
-                If you don&apos;t see your question here, share it in your
-                inquiry and we&apos;ll address it directly during our first
-                conversation.
-              </p>
-            </aside>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <style>{`
+        {/* FAQ */}
+        <section
+          id="contact-faq"
+          className="pw-contact__section pw-contact__section--soft"
+        >
+          <div className="pw-contact__container">
+            <header
+              ref={reveal}
+              data-reveal
+              className="pw-contact__section-header"
+            >
+              <div className="pw-contact__eyebrow">
+                <span className="pw-contact__eyebrow-dot" />
+                FAQ
+              </div>
+
+              <h2 className="pw-contact__heading">
+                Questions About <mark>Working With Pedzaworks.</mark>
+              </h2>
+
+              <p className="pw-contact__lead">
+                These questions cover how we approach projects, what we build,
+                and how we support organisations before, during, and after
+                delivery.
+              </p>
+            </header>
+
+            <div ref={reveal} data-reveal className="pw-contact__faq-grid">
+              <div className="pw-contact__faq-list">
+                {faqItems.map((item, idx) => (
+                  <details
+                    key={item.q}
+                    className="pw-contact__faq-item"
+                    open={idx === 0}
+                  >
+                    <summary className="pw-contact__faq-summary">
+                      <span className="pw-contact__faq-q">{item.q}</span>
+                      <span className="pw-contact__faq-icon">
+                        <ChevronDown size={16} strokeWidth={1.8} />
+                      </span>
+                    </summary>
+
+                    <div className="pw-contact__faq-body">
+                      <p>{item.a}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside className="pw-contact__faq-panel">
+                <div className="pw-contact__faq-panel-grid" />
+                <p className="pw-contact__faq-panel-kicker">
+                  Built around operations, not guesswork.
+                </p>
+                <p className="pw-contact__faq-panel-body">
+                  We treat every project as part of your operational
+                  infrastructure. That means understanding constraints,
+                  designing for long-term maintainability, and ensuring the
+                  systems we deliver can evolve with your organisation.
+                </p>
+                <p className="pw-contact__faq-panel-body">
+                  If you don&apos;t see your question here, share it in your
+                  inquiry and we&apos;ll address it directly during our first
+                  conversation.
+                </p>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <style>{`
         .pw-about {
           --co-red: var(--pw-red);
           --co-red-hover: var(--pw-red-hover);
@@ -1282,6 +1316,7 @@ export default function Contact() {
           }
         }
       `}</style>
-    </main>
+      </main>
+    </>
   );
 }

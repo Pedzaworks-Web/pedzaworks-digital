@@ -15,7 +15,7 @@ import {
   BarChart3,
   Activity,
 } from "lucide-react";
-
+import SEO from "../components/SEO";
 import heroImage from "../assets/indu_hero.jpg";
 import eduImage from "../assets/education.jpg";
 import servicesImage from "../assets/service.jpg";
@@ -177,297 +177,324 @@ export default function Industries() {
   };
 
   return (
-    <div className="pw-ind">
-      <div className="pw-ind__bg-grid" />
-      <div className="pw-ind__bg-fade" />
-      <div className="pw-ind__top-rule" />
+    <>
+      <SEO
+        title="Industries"
+        description="Explore how Pedzaworks Digital Solutions builds operational software systems, workflow platforms, and connected infrastructure for education, service businesses, logistics, SMEs, and community organizations."
+        url="https://www.pedzaworks.com/industries"
+        keywords={[
+          "industries served",
+          "operational software systems",
+          "workflow platforms",
+          "connected infrastructure",
+          "education software",
+          "logistics platforms",
+          "SME automation",
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Industries | Pedzaworks Digital Solutions",
+          url: "https://www.pedzaworks.com/industries",
+          description:
+            "Explore how Pedzaworks Digital Solutions builds operational software systems, workflow platforms, and connected infrastructure for multiple industries.",
+        }}
+      />
+      <div className="pw-ind">
+        <div className="pw-ind__bg-grid" />
+        <div className="pw-ind__bg-fade" />
+        <div className="pw-ind__top-rule" />
 
-      <section className="pw-ind__hero">
-        <div className="container-custom">
-          <div className="pw-ind__hero-row">
-            <div ref={reveal} data-reveal className="pw-ind__hero-content">
-              <h1 className="pw-ind__hero-heading">
-                Solutions Built Around How <mark>Organizations Operate.</mark>
-              </h1>
+        <section className="pw-ind__hero">
+          <div className="container-custom">
+            <div className="pw-ind__hero-row">
+              <div ref={reveal} data-reveal className="pw-ind__hero-content">
+                <h1 className="pw-ind__hero-heading">
+                  Solutions Built Around How <mark>Organizations Operate.</mark>
+                </h1>
 
-              <p className="pw-ind__hero-lead">
-                Different industries face different challenges, but operational
-                excellence always depends on visibility, coordination,
-                execution, and connected systems.
-              </p>
+                <p className="pw-ind__hero-lead">
+                  Different industries face different challenges, but
+                  operational excellence always depends on visibility,
+                  coordination, execution, and connected systems.
+                </p>
 
-              <div className="pw-ind__hero-divider">
-                <span className="pw-ind__hero-divider-line" />
-                <span className="pw-ind__hero-divider-dot" />
-                <span className="pw-ind__hero-divider-line" />
+                <div className="pw-ind__hero-divider">
+                  <span className="pw-ind__hero-divider-line" />
+                  <span className="pw-ind__hero-divider-dot" />
+                  <span className="pw-ind__hero-divider-line" />
+                </div>
+
+                <div className="pw-ind__hero-stats">
+                  {[
+                    { val: "05+", label: "Industries Served" },
+                    { val: "20+", label: "Operational Workflows" },
+                    { val: "100%", label: "Systems Thinking" },
+                  ].map((s, i) => (
+                    <div key={i} className="pw-ind__hero-stat">
+                      <span className="pw-ind__hero-stat-val">{s.val}</span>
+                      <span className="pw-ind__hero-stat-label">{s.label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="pw-ind__hero-stats">
+              <div ref={reveal} data-reveal className="pw-ind__hero-img-wrap">
+                <div className="pw-ind__hero-img-shell">
+                  <img
+                    src={heroImage}
+                    alt="Operational systems across industries"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="pw-ind__nav-section">
+          <div className="container-custom">
+            <div ref={reveal} data-reveal className="pw-ind__nav-label">
+              <span className="pw-ind__divider-line" />
+              <span className="pw-ind__divider-text">Select an industry</span>
+              <span className="pw-ind__divider-line" />
+            </div>
+
+            <div ref={reveal} data-reveal className="pw-ind__navigator">
+              {industries.map((ind) => (
+                <button
+                  key={ind.id}
+                  className={`pw-ind__nav-item${
+                    activeIndustry === ind.id ? " pw-ind__nav-item--active" : ""
+                  }`}
+                  onClick={() => setActiveIndustry(ind.id)}
+                  type="button"
+                >
+                  <span className="pw-ind__nav-icon">{ind.icon}</span>
+                  <span className="pw-ind__nav-title">{ind.nav}</span>
+                  <span className="pw-ind__nav-indicator" />
+                </button>
+              ))}
+
+              <button
+                className={`pw-ind__nav-item${
+                  activeIndustry === "infra" ? " pw-ind__nav-item--active" : ""
+                }`}
+                onClick={() => setActiveIndustry("infra")}
+                type="button"
+              >
+                <span className="pw-ind__nav-icon">
+                  <Cpu size={18} strokeWidth={1.6} />
+                </span>
+                <span className="pw-ind__nav-title">
+                  Connected Infrastructure
+                </span>
+                <span className="pw-ind__nav-indicator" />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {industries.map((ind, i) => {
+          const isReverse = i % 2 !== 0;
+
+          return (
+            <section
+              key={ind.id}
+              id={ind.id}
+              className={`pw-ind__showcase${
+                i % 2 === 0 ? "" : " pw-ind__showcase--soft"
+              }`}
+            >
+              <div className="container-custom">
+                <div
+                  className="pw-ind__showcase-row"
+                  style={{ flexDirection: isReverse ? "row-reverse" : "row" }}
+                >
+                  <div
+                    ref={reveal}
+                    data-reveal
+                    className="pw-ind__showcase-body"
+                  >
+                    <div className="pw-ind__showcase-index-label">
+                      {ind.label}
+                    </div>
+
+                    <h2 className="pw-ind__showcase-title">{ind.title}</h2>
+                    <p className="pw-ind__showcase-desc">{ind.description}</p>
+
+                    <div className="pw-ind__showcase-cols">
+                      <div>
+                        <p className="pw-ind__col-label">Challenges</p>
+                        <ul className="pw-ind__item-list">
+                          {ind.challenges.map((c, ci) => (
+                            <li key={ci} className="pw-ind__item">
+                              <span className="pw-ind__item-dot pw-ind__item-dot--challenge" />
+                              {c}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <p className="pw-ind__col-label">Solutions</p>
+                        <ul className="pw-ind__item-list">
+                          {ind.solutions.map((s, si) => (
+                            <li key={si} className="pw-ind__item">
+                              <CheckCircle2
+                                size={13}
+                                strokeWidth={2}
+                                style={{
+                                  color: "var(--pw-red)",
+                                  flexShrink: 0,
+                                  marginTop: 1,
+                                }}
+                              />
+                              {s}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <a href="/contact" className="pw-ind__cta-outline">
+                      Discuss {ind.nav}
+                      <ArrowRight size={14} strokeWidth={2.2} />
+                    </a>
+                  </div>
+
+                  <div
+                    ref={reveal}
+                    data-reveal
+                    className="pw-ind__showcase-visual"
+                  >
+                    <div className="pw-ind__showcase-number" aria-hidden="true">
+                      {ind.index}
+                    </div>
+
+                    <div className="pw-ind__showcase-img-shell">
+                      <img
+                        src={ind.image}
+                        alt={`${ind.title} operational platform`}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+
+        <section id="infra" className="pw-ind__infra-section">
+          <div className="pw-ind__infra-bg" aria-hidden="true">
+            {[...Array(12)].map((_, i) => (
+              <span
+                key={i}
+                className="pw-ind__infra-ring"
+                style={{
+                  width: `${80 + i * 60}px`,
+                  height: `${80 + i * 60}px`,
+                  animationDelay: `${i * 0.3}s`,
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="container-custom">
+            <div ref={reveal} data-reveal className="pw-ind__infra-inner">
+              <div className="pw-ind__eyebrow pw-ind__eyebrow--light">
+                <span className="pw-ind__eyebrow-dot pw-ind__eyebrow-dot--light" />
+                Connected Infrastructure
+              </div>
+
+              <h2 className="pw-ind__infra-heading">Beyond Software.</h2>
+
+              <p className="pw-ind__infra-lead">
+                Pedzaworks also explores opportunities at the intersection of
+                software, IoT, monitoring systems, telemetry, and connected
+                infrastructure — building systems that bridge the physical and
+                digital operational world.
+              </p>
+
+              <div className="pw-ind__infra-grid">
                 {[
-                  { val: "05+", label: "Industries Served" },
-                  { val: "20+", label: "Operational Workflows" },
-                  { val: "100%", label: "Systems Thinking" },
-                ].map((s, i) => (
-                  <div key={i} className="pw-ind__hero-stat">
-                    <span className="pw-ind__hero-stat-val">{s.val}</span>
-                    <span className="pw-ind__hero-stat-label">{s.label}</span>
+                  {
+                    icon: <Monitor size={20} strokeWidth={1.6} />,
+                    title: "Smart Monitoring",
+                    desc: "Real-time visibility dashboards connected to operational environments and infrastructure.",
+                  },
+                  {
+                    icon: <Wifi size={20} strokeWidth={1.6} />,
+                    title: "IoT Integration",
+                    desc: "Software systems that connect and interpret data from sensors, devices, and physical infrastructure.",
+                  },
+                  {
+                    icon: <Activity size={20} strokeWidth={1.6} />,
+                    title: "Telemetry Platforms",
+                    desc: "Operational data streams organized into actionable, real-time system insights.",
+                  },
+                  {
+                    icon: <BarChart3 size={20} strokeWidth={1.6} />,
+                    title: "Connected Ecosystems",
+                    desc: "Infrastructure-aware platforms that help organizations see and act on operational data in real time.",
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="pw-ind__infra-card">
+                    <div className="pw-ind__infra-card-icon">{item.icon}</div>
+                    <h3 className="pw-ind__infra-card-title">{item.title}</h3>
+                    <p className="pw-ind__infra-card-desc">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
-
-            <div ref={reveal} data-reveal className="pw-ind__hero-img-wrap">
-              <div className="pw-ind__hero-img-shell">
-                <img
-                  src={heroImage}
-                  alt="Operational systems across industries"
-                />
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="pw-ind__nav-section">
-        <div className="container-custom">
-          <div ref={reveal} data-reveal className="pw-ind__nav-label">
-            <span className="pw-ind__divider-line" />
-            <span className="pw-ind__divider-text">Select an industry</span>
-            <span className="pw-ind__divider-line" />
-          </div>
-
-          <div ref={reveal} data-reveal className="pw-ind__navigator">
-            {industries.map((ind) => (
-              <button
-                key={ind.id}
-                className={`pw-ind__nav-item${
-                  activeIndustry === ind.id ? " pw-ind__nav-item--active" : ""
-                }`}
-                onClick={() => setActiveIndustry(ind.id)}
-                type="button"
-              >
-                <span className="pw-ind__nav-icon">{ind.icon}</span>
-                <span className="pw-ind__nav-title">{ind.nav}</span>
-                <span className="pw-ind__nav-indicator" />
-              </button>
-            ))}
-
-            <button
-              className={`pw-ind__nav-item${
-                activeIndustry === "infra" ? " pw-ind__nav-item--active" : ""
-              }`}
-              onClick={() => setActiveIndustry("infra")}
-              type="button"
-            >
-              <span className="pw-ind__nav-icon">
-                <Cpu size={18} strokeWidth={1.6} />
-              </span>
-              <span className="pw-ind__nav-title">
-                Connected Infrastructure
-              </span>
-              <span className="pw-ind__nav-indicator" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {industries.map((ind, i) => {
-        const isReverse = i % 2 !== 0;
-
-        return (
-          <section
-            key={ind.id}
-            id={ind.id}
-            className={`pw-ind__showcase${
-              i % 2 === 0 ? "" : " pw-ind__showcase--soft"
-            }`}
-          >
-            <div className="container-custom">
-              <div
-                className="pw-ind__showcase-row"
-                style={{ flexDirection: isReverse ? "row-reverse" : "row" }}
-              >
-                <div ref={reveal} data-reveal className="pw-ind__showcase-body">
-                  <div className="pw-ind__showcase-index-label">
-                    {ind.label}
+        <section className="pw-ind__section">
+          <div className="container-custom">
+            <div ref={reveal} data-reveal>
+              <div className="pw-ind__cta-inner">
+                <div>
+                  <div className="pw-ind__eyebrow">
+                    <span className="pw-ind__eyebrow-dot pw-ind__eyebrow-dot--pulse" />
+                    Start A Conversation
                   </div>
 
-                  <h2 className="pw-ind__showcase-title">{ind.title}</h2>
-                  <p className="pw-ind__showcase-desc">{ind.description}</p>
+                  <h2
+                    className="pw-ind__heading"
+                    style={{ marginBottom: "0.75rem" }}
+                  >
+                    Let&apos;s Build Something Around{" "}
+                    <mark>Your Operations.</mark>
+                  </h2>
 
-                  <div className="pw-ind__showcase-cols">
-                    <div>
-                      <p className="pw-ind__col-label">Challenges</p>
-                      <ul className="pw-ind__item-list">
-                        {ind.challenges.map((c, ci) => (
-                          <li key={ci} className="pw-ind__item">
-                            <span className="pw-ind__item-dot pw-ind__item-dot--challenge" />
-                            {c}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <p className="pw-ind__lead" style={{ maxWidth: "38rem" }}>
+                    Whether you&apos;re in education, logistics, services,
+                    community development, or a completely different industry,
+                    Pedzaworks can help transform operational challenges into
+                    intelligent digital systems.
+                  </p>
+                </div>
 
-                    <div>
-                      <p className="pw-ind__col-label">Solutions</p>
-                      <ul className="pw-ind__item-list">
-                        {ind.solutions.map((s, si) => (
-                          <li key={si} className="pw-ind__item">
-                            <CheckCircle2
-                              size={13}
-                              strokeWidth={2}
-                              style={{
-                                color: "var(--pw-red)",
-                                flexShrink: 0,
-                                marginTop: 1,
-                              }}
-                            />
-                            {s}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                <div className="pw-ind__cta-actions">
+                  <a href="#contact" className="pw-ind__cta-primary">
+                    <span className="pw-ind__cta-shimmer" />
+                    <span className="pw-ind__cta-content">
+                      Discuss Your Project
+                      <ArrowRight size={15} strokeWidth={2.2} />
+                    </span>
+                  </a>
 
-                  <a href="/contact" className="pw-ind__cta-outline">
-                    Discuss {ind.nav}
+                  <a href="#schedule" className="pw-ind__btn-ghost">
+                    Schedule A Consultation
                     <ArrowRight size={14} strokeWidth={2.2} />
                   </a>
                 </div>
-
-                <div
-                  ref={reveal}
-                  data-reveal
-                  className="pw-ind__showcase-visual"
-                >
-                  <div className="pw-ind__showcase-number" aria-hidden="true">
-                    {ind.index}
-                  </div>
-
-                  <div className="pw-ind__showcase-img-shell">
-                    <img
-                      src={ind.image}
-                      alt={`${ind.title} operational platform`}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        );
-      })}
-
-      <section id="infra" className="pw-ind__infra-section">
-        <div className="pw-ind__infra-bg" aria-hidden="true">
-          {[...Array(12)].map((_, i) => (
-            <span
-              key={i}
-              className="pw-ind__infra-ring"
-              style={{
-                width: `${80 + i * 60}px`,
-                height: `${80 + i * 60}px`,
-                animationDelay: `${i * 0.3}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="container-custom">
-          <div ref={reveal} data-reveal className="pw-ind__infra-inner">
-            <div className="pw-ind__eyebrow pw-ind__eyebrow--light">
-              <span className="pw-ind__eyebrow-dot pw-ind__eyebrow-dot--light" />
-              Connected Infrastructure
-            </div>
-
-            <h2 className="pw-ind__infra-heading">Beyond Software.</h2>
-
-            <p className="pw-ind__infra-lead">
-              Pedzaworks also explores opportunities at the intersection of
-              software, IoT, monitoring systems, telemetry, and connected
-              infrastructure — building systems that bridge the physical and
-              digital operational world.
-            </p>
-
-            <div className="pw-ind__infra-grid">
-              {[
-                {
-                  icon: <Monitor size={20} strokeWidth={1.6} />,
-                  title: "Smart Monitoring",
-                  desc: "Real-time visibility dashboards connected to operational environments and infrastructure.",
-                },
-                {
-                  icon: <Wifi size={20} strokeWidth={1.6} />,
-                  title: "IoT Integration",
-                  desc: "Software systems that connect and interpret data from sensors, devices, and physical infrastructure.",
-                },
-                {
-                  icon: <Activity size={20} strokeWidth={1.6} />,
-                  title: "Telemetry Platforms",
-                  desc: "Operational data streams organized into actionable, real-time system insights.",
-                },
-                {
-                  icon: <BarChart3 size={20} strokeWidth={1.6} />,
-                  title: "Connected Ecosystems",
-                  desc: "Infrastructure-aware platforms that help organizations see and act on operational data in real time.",
-                },
-              ].map((item, i) => (
-                <div key={i} className="pw-ind__infra-card">
-                  <div className="pw-ind__infra-card-icon">{item.icon}</div>
-                  <h3 className="pw-ind__infra-card-title">{item.title}</h3>
-                  <p className="pw-ind__infra-card-desc">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pw-ind__section">
-        <div className="container-custom">
-          <div ref={reveal} data-reveal>
-            <div className="pw-ind__cta-inner">
-              <div>
-                <div className="pw-ind__eyebrow">
-                  <span className="pw-ind__eyebrow-dot pw-ind__eyebrow-dot--pulse" />
-                  Start A Conversation
-                </div>
-
-                <h2
-                  className="pw-ind__heading"
-                  style={{ marginBottom: "0.75rem" }}
-                >
-                  Let&apos;s Build Something Around{" "}
-                  <mark>Your Operations.</mark>
-                </h2>
-
-                <p className="pw-ind__lead" style={{ maxWidth: "38rem" }}>
-                  Whether you&apos;re in education, logistics, services,
-                  community development, or a completely different industry,
-                  Pedzaworks can help transform operational challenges into
-                  intelligent digital systems.
-                </p>
-              </div>
-
-              <div className="pw-ind__cta-actions">
-                <a href="#contact" className="pw-ind__cta-primary">
-                  <span className="pw-ind__cta-shimmer" />
-                  <span className="pw-ind__cta-content">
-                    Discuss Your Project
-                    <ArrowRight size={15} strokeWidth={2.2} />
-                  </span>
-                </a>
-
-                <a href="#schedule" className="pw-ind__btn-ghost">
-                  Schedule A Consultation
-                  <ArrowRight size={14} strokeWidth={2.2} />
-                </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <style>{`
+        <style>{`
       .pw-ind {
         position: relative;
         background: linear-gradient(160deg, #edf1f7 0%, #f3f6fa 55%, #eef1f6 100%);
@@ -1462,6 +1489,7 @@ export default function Industries() {
         }
       }
     `}</style>
-    </div>
+      </div>
+    </>
   );
 }

@@ -8,19 +8,19 @@ type TechItem = {
 };
 
 const STACK: TechItem[] = [
-  { name: "React", logo: "/react.svg" },
-  { name: "TypeScript", logo: "/typescript.svg" },
-  { name: "Node.js", logo: "/node.svg" },
-  { name: "PostgreSQL", logo: "/postgres.svg" },
-  { name: "Supabase", logo: "/supabase.svg" },
-  { name: "AWS", logo: "/aws.svg" },
-  { name: "Docker", logo: "/docker.svg" },
-  { name: "Tailwind CSS", logo: "/tailwind.svg" },
-  { name: "MQTT", logo: "/mqtt.svg" },
-  { name: "Python", logo: "/python.svg" },
-  { name: "Java", logo: "/java.svg" },
-  { name: "C", logo: "/c.svg" },
-  { name: "Grafana", logo: "/grafana.svg" },
+  { name: "React", logo: "web-images/react.svg" },
+  { name: "TypeScript", logo: "web-images/typescript.svg" },
+  { name: "Node.js", logo: "web-images/node.svg" },
+  { name: "PostgreSQL", logo: "web-images/postgres.svg" },
+  { name: "Supabase", logo: "web-images/supabase.svg" },
+  { name: "AWS", logo: "web-images/aws.svg" },
+  { name: "Docker", logo: "web-images/docker.svg" },
+  { name: "Tailwind CSS", logo: "web-images/tailwind.svg" },
+  { name: "MQTT", logo: "web-images/mqtt.svg" },
+  { name: "Python", logo: "web-images/python.svg" },
+  { name: "Java", logo: "web-images/java.svg" },
+  { name: "C", logo: "web-images/c.svg" },
+  { name: "Grafana", logo: "web-images/grafana.svg" },
 ];
 
 const TechStackCarousel: React.FC = () => {

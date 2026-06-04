@@ -19,7 +19,7 @@ import {
   Zap,
 } from "lucide-react";
 import servicesHero from "../assets/scale.jpg";
-
+import SEO from "../components/SEO";
 export default function Services() {
   const revealRefs = useRef<HTMLElement[]>([]);
 
@@ -177,292 +177,316 @@ export default function Services() {
   ];
 
   return (
-    <div className="pw-services">
-      <div className="pw-about__bg-grid" />
-      <div className="pw-about__bg-fade" />
-      <div className="pw-top-rule" />
+    <>
+      <SEO
+        title="Services"
+        description="Explore Pedzaworks Digital Solutions services including operational software systems, workflow automation, platform engineering, systems integration, connected infrastructure, and digital platforms."
+        url="https://www.pedzaworks.com/services"
+        keywords={[
+          "operational software systems",
+          "workflow automation",
+          "platform engineering",
+          "systems integration",
+          "connected infrastructure",
+          "business websites",
+          "digital platforms",
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Services | Pedzaworks Digital Solutions",
+          url: "https://www.pedzaworks.com/services",
+          description:
+            "Explore Pedzaworks Digital Solutions services including operational software systems, workflow automation, platform engineering, systems integration, connected infrastructure, and digital platforms.",
+        }}
+      />
+      <div className="pw-services">
+        <div className="pw-about__bg-grid" />
+        <div className="pw-about__bg-fade" />
+        <div className="pw-top-rule" />
 
-      {/* ── SECTION 1: HERO ── */}
-      <section className="pw-section pw-section--hero">
-        <div className="container-custom">
-          <div className="pw-grid-hero">
-            <div ref={reveal} data-reveal>
-              <h1 className="pw-heading pw-heading--hero">
-                <span className="pw-heading__line">
-                  Engineering Software For
-                </span>
-                <span className="pw-heading__line">
-                  <mark>Better Operations.</mark>
-                </span>
-              </h1>
+        {/* ── SECTION 1: HERO ── */}
+        <section className="pw-section pw-section--hero">
+          <div className="container-custom">
+            <div className="pw-grid-hero">
+              <div ref={reveal} data-reveal>
+                <h1 className="pw-heading pw-heading--hero">
+                  <span className="pw-heading__line">
+                    Engineering Software For
+                  </span>
+                  <span className="pw-heading__line">
+                    <mark>Better Operations.</mark>
+                  </span>
+                </h1>
 
-              <p className="pw-lead" style={{ marginTop: "1.4rem" }}>
-                Pedzaworks Digital Solutions designs operational software
-                systems, workflow platforms, and connected infrastructure that
-                help organisations improve visibility, coordination, automation,
+                <p className="pw-lead" style={{ marginTop: "1.4rem" }}>
+                  Pedzaworks Digital Solutions designs operational software
+                  systems, workflow platforms, and connected infrastructure that
+                  help organisations improve visibility, coordination,
+                  automation, and execution.
+                </p>
+              </div>
+
+              <div
+                ref={reveal}
+                data-reveal
+                className="pw-image-shell pw-image-shell--hero"
+              >
+                <img
+                  src={servicesHero}
+                  alt="Operational software systems connecting workflows, platforms, and infrastructure"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 2: PHILOSOPHY ── */}
+        <section className="pw-section pw-section--soft">
+          <div className="container-custom">
+            <div className="pw-grid-editorial">
+              <div ref={reveal} data-reveal>
+                <div className="pw-eyebrow">
+                  <span className="pw-eyebrow-dot" />
+                  Our Approach
+                </div>
+                <h2 className="pw-heading">
+                  Technology Built Around <mark>Operations.</mark>
+                </h2>
+                <div className="pw-divider" style={{ marginTop: "1.5rem" }}>
+                  <span className="pw-divider-line" />
+                  <span className="pw-divider-label">Philosophy</span>
+                  <span className="pw-divider-line" />
+                </div>
+              </div>
+
+              <div ref={reveal} data-reveal>
+                <p className="pw-body-large">
+                  We don&apos;t begin with technologies. We begin with
+                  operational challenges, workflow inefficiencies, coordination
+                  gaps, and opportunities for automation.
+                </p>
+                <p className="pw-body-large">
+                  Our role is to design software systems that help organisations
+                  operate more effectively — not to deliver generic digital
+                  products, but to build purposeful infrastructure aligned with
+                  how your organisation actually works.
+                </p>
+                <p className="pw-body-large">
+                  Every system we build is designed around people, processes,
+                  and decisions — so that technology becomes an operational
+                  asset, not an overhead.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 3: CORE SERVICES ── */}
+        <section className="pw-section">
+          <div className="container-custom">
+            <div ref={reveal} data-reveal className="pw-section-title">
+              <div className="pw-eyebrow">
+                <span className="pw-eyebrow-dot" />
+                Core Services
+              </div>
+              <h2 className="pw-heading">What We Help Organisations Build</h2>
+              <p className="pw-lead">
+                Every organisation operates differently. Our services are
+                designed to help businesses, institutions, and growing
+                organisations build software systems that improve how they
+                operate.
+              </p>
+            </div>
+
+            <div
+              className="pw-card-grid pw-card-grid--3col"
+              ref={reveal as any}
+              data-reveal
+            >
+              {services.map((s) => (
+                <article key={s.index} className="pw-card">
+                  <span className="pw-card-shimmer" />
+                  <div className="pw-card-texture" />
+
+                  <div className="pw-card-top">
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        marginBottom: "1.1rem",
+                      }}
+                    >
+                      <div className="pw-card-icon">{s.icon}</div>
+                      <span
+                        style={{
+                          fontFamily: "var(--co-mono)",
+                          fontSize: "0.62rem",
+                          letterSpacing: "0.18em",
+                          color: "var(--co-text-3)",
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        {s.index}
+                      </span>
+                    </div>
+
+                    <h3 className="pw-card-title">{s.title}</h3>
+                    <p className="pw-card-desc">{s.desc}</p>
+                  </div>
+
+                  <div
+                    style={{
+                      marginTop: "auto",
+                      paddingTop: "1rem",
+                      borderTop: "1px solid var(--co-border)",
+                      position: "relative",
+                      zIndex: 1,
+                    }}
+                  >
+                    <ul
+                      style={{
+                        margin: "0 0 1rem",
+                        padding: 0,
+                        listStyle: "none",
+                        display: "grid",
+                        gap: "0.35rem",
+                      }}
+                    >
+                      {s.examples.map((ex, i) => (
+                        <li
+                          key={i}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "0.5rem",
+                            fontFamily: "var(--co-mono)",
+                            fontSize: "0.64rem",
+                            letterSpacing: "0.08em",
+                            color: "var(--co-text-3)",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          <span
+                            style={{
+                              width: 4,
+                              height: 4,
+                              borderRadius: "50%",
+                              background: "var(--co-red)",
+                              flexShrink: 0,
+                              opacity: 0.6,
+                            }}
+                          />
+                          {ex}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div
+                      className="pw-card-footer"
+                      style={{ paddingTop: 0, marginTop: 0, borderTop: "none" }}
+                    >
+                      <span className="pw-card-tag">{s.tag}</span>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 4: INDUSTRIES ── */}
+        <section className="pw-section">
+          <div className="container-custom">
+            <div ref={reveal} data-reveal className="pw-section-title">
+              <div className="pw-eyebrow">
+                <span className="pw-eyebrow-dot" />
+                Industries
+              </div>
+              <h2 className="pw-heading">Organisations We Support</h2>
+              <p className="pw-lead">
+                Operational challenges exist across every sector. We help
+                organisations build systems that improve visibility,
+                coordination, and execution.
+              </p>
+            </div>
+
+            <div
+              className="pw-card-grid pw-card-grid--3col"
+              ref={reveal as any}
+              data-reveal
+            >
+              {industries.map((ind, i) => (
+                <article key={i} className="pw-card">
+                  <span className="pw-card-shimmer" />
+                  <div className="pw-card-texture" />
+
+                  <div className="pw-card-top">
+                    <div
+                      className="pw-card-icon"
+                      style={{ marginBottom: "1.1rem" }}
+                    >
+                      {ind.icon}
+                    </div>
+                    <h3 className="pw-card-title">{ind.title}</h3>
+                    <p className="pw-card-desc">{ind.desc}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 5: WHY PEDZAWORKS ── */}
+        <section className="pw-section pw-section--soft">
+          <div className="container-custom">
+            <div ref={reveal} data-reveal className="pw-section-title">
+              <div className="pw-eyebrow">
+                <span className="pw-eyebrow-dot" />
+                Why Pedzaworks
+              </div>
+              <h2 className="pw-heading">
+                Built Around <mark>Operational Thinking.</mark>
+              </h2>
+              <p className="pw-lead">
+                Technology alone does not solve operational challenges.
+                Effective systems are built around people, workflows, decisions,
                 and execution.
               </p>
             </div>
 
             <div
-              ref={reveal}
+              className="pw-card-grid pw-card-grid--impact"
+              ref={reveal as any}
               data-reveal
-              className="pw-image-shell pw-image-shell--hero"
             >
-              <img
-                src={servicesHero}
-                alt="Operational software systems connecting workflows, platforms, and infrastructure"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+              {impact.map((item, i) => (
+                <article key={i} className="pw-card">
+                  <span className="pw-card-shimmer" />
+                  <div className="pw-card-texture" />
 
-      {/* ── SECTION 2: PHILOSOPHY ── */}
-      <section className="pw-section pw-section--soft">
-        <div className="container-custom">
-          <div className="pw-grid-editorial">
-            <div ref={reveal} data-reveal>
-              <div className="pw-eyebrow">
-                <span className="pw-eyebrow-dot" />
-                Our Approach
-              </div>
-              <h2 className="pw-heading">
-                Technology Built Around <mark>Operations.</mark>
-              </h2>
-              <div className="pw-divider" style={{ marginTop: "1.5rem" }}>
-                <span className="pw-divider-line" />
-                <span className="pw-divider-label">Philosophy</span>
-                <span className="pw-divider-line" />
-              </div>
-            </div>
+                  <div className="pw-impact-index">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
 
-            <div ref={reveal} data-reveal>
-              <p className="pw-body-large">
-                We don&apos;t begin with technologies. We begin with operational
-                challenges, workflow inefficiencies, coordination gaps, and
-                opportunities for automation.
-              </p>
-              <p className="pw-body-large">
-                Our role is to design software systems that help organisations
-                operate more effectively — not to deliver generic digital
-                products, but to build purposeful infrastructure aligned with
-                how your organisation actually works.
-              </p>
-              <p className="pw-body-large">
-                Every system we build is designed around people, processes, and
-                decisions — so that technology becomes an operational asset, not
-                an overhead.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 3: CORE SERVICES ── */}
-      <section className="pw-section">
-        <div className="container-custom">
-          <div ref={reveal} data-reveal className="pw-section-title">
-            <div className="pw-eyebrow">
-              <span className="pw-eyebrow-dot" />
-              Core Services
-            </div>
-            <h2 className="pw-heading">What We Help Organisations Build</h2>
-            <p className="pw-lead">
-              Every organisation operates differently. Our services are designed
-              to help businesses, institutions, and growing organisations build
-              software systems that improve how they operate.
-            </p>
-          </div>
-
-          <div
-            className="pw-card-grid pw-card-grid--3col"
-            ref={reveal as any}
-            data-reveal
-          >
-            {services.map((s) => (
-              <article key={s.index} className="pw-card">
-                <span className="pw-card-shimmer" />
-                <div className="pw-card-texture" />
-
-                <div className="pw-card-top">
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginBottom: "1.1rem",
-                    }}
-                  >
-                    <div className="pw-card-icon">{s.icon}</div>
-                    <span
-                      style={{
-                        fontFamily: "var(--co-mono)",
-                        fontSize: "0.62rem",
-                        letterSpacing: "0.18em",
-                        color: "var(--co-text-3)",
-                        textTransform: "uppercase",
-                      }}
+                  <div className="pw-card-top">
+                    <div
+                      className="pw-card-icon"
+                      style={{ marginBottom: "1.1rem" }}
                     >
-                      {s.index}
-                    </span>
+                      {item.icon}
+                    </div>
+                    <h3 className="pw-card-title">{item.title}</h3>
+                    <p className="pw-card-desc">{item.desc}</p>
                   </div>
-
-                  <h3 className="pw-card-title">{s.title}</h3>
-                  <p className="pw-card-desc">{s.desc}</p>
-                </div>
-
-                <div
-                  style={{
-                    marginTop: "auto",
-                    paddingTop: "1rem",
-                    borderTop: "1px solid var(--co-border)",
-                    position: "relative",
-                    zIndex: 1,
-                  }}
-                >
-                  <ul
-                    style={{
-                      margin: "0 0 1rem",
-                      padding: 0,
-                      listStyle: "none",
-                      display: "grid",
-                      gap: "0.35rem",
-                    }}
-                  >
-                    {s.examples.map((ex, i) => (
-                      <li
-                        key={i}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "0.5rem",
-                          fontFamily: "var(--co-mono)",
-                          fontSize: "0.64rem",
-                          letterSpacing: "0.08em",
-                          color: "var(--co-text-3)",
-                          textTransform: "uppercase",
-                        }}
-                      >
-                        <span
-                          style={{
-                            width: 4,
-                            height: 4,
-                            borderRadius: "50%",
-                            background: "var(--co-red)",
-                            flexShrink: 0,
-                            opacity: 0.6,
-                          }}
-                        />
-                        {ex}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div
-                    className="pw-card-footer"
-                    style={{ paddingTop: 0, marginTop: 0, borderTop: "none" }}
-                  >
-                    <span className="pw-card-tag">{s.tag}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 4: INDUSTRIES ── */}
-      <section className="pw-section">
-        <div className="container-custom">
-          <div ref={reveal} data-reveal className="pw-section-title">
-            <div className="pw-eyebrow">
-              <span className="pw-eyebrow-dot" />
-              Industries
+                </article>
+              ))}
             </div>
-            <h2 className="pw-heading">Organisations We Support</h2>
-            <p className="pw-lead">
-              Operational challenges exist across every sector. We help
-              organisations build systems that improve visibility, coordination,
-              and execution.
-            </p>
           </div>
+        </section>
 
-          <div
-            className="pw-card-grid pw-card-grid--3col"
-            ref={reveal as any}
-            data-reveal
-          >
-            {industries.map((ind, i) => (
-              <article key={i} className="pw-card">
-                <span className="pw-card-shimmer" />
-                <div className="pw-card-texture" />
-
-                <div className="pw-card-top">
-                  <div
-                    className="pw-card-icon"
-                    style={{ marginBottom: "1.1rem" }}
-                  >
-                    {ind.icon}
-                  </div>
-                  <h3 className="pw-card-title">{ind.title}</h3>
-                  <p className="pw-card-desc">{ind.desc}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 5: WHY PEDZAWORKS ── */}
-      <section className="pw-section pw-section--soft">
-        <div className="container-custom">
-          <div ref={reveal} data-reveal className="pw-section-title">
-            <div className="pw-eyebrow">
-              <span className="pw-eyebrow-dot" />
-              Why Pedzaworks
-            </div>
-            <h2 className="pw-heading">
-              Built Around <mark>Operational Thinking.</mark>
-            </h2>
-            <p className="pw-lead">
-              Technology alone does not solve operational challenges. Effective
-              systems are built around people, workflows, decisions, and
-              execution.
-            </p>
-          </div>
-
-          <div
-            className="pw-card-grid pw-card-grid--impact"
-            ref={reveal as any}
-            data-reveal
-          >
-            {impact.map((item, i) => (
-              <article key={i} className="pw-card">
-                <span className="pw-card-shimmer" />
-                <div className="pw-card-texture" />
-
-                <div className="pw-impact-index">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-
-                <div className="pw-card-top">
-                  <div
-                    className="pw-card-icon"
-                    style={{ marginBottom: "1.1rem" }}
-                  >
-                    {item.icon}
-                  </div>
-                  <h3 className="pw-card-title">{item.title}</h3>
-                  <p className="pw-card-desc">{item.desc}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <style>{`
+        <style>{`
         .pw-services {
           --co-red: var(--pw-red);
           --co-red-hover: var(--pw-red-hover);
@@ -1115,6 +1139,7 @@ export default function Services() {
           }
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 }

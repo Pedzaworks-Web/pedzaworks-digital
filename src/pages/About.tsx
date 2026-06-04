@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { GitBranch, Layers3, Network, Radar } from "lucide-react";
-
+import SEO from "../components/SEO";
 import aboutHeroImage from "../assets/about.png";
 import visionImage from "../assets/africa.png";
 import founderImage from "../assets/founder.png";
@@ -89,6 +89,26 @@ const About: React.FC = () => {
 
   return (
     <>
+      <SEO
+        title="About"
+        description="Learn about Pedzaworks Digital Solutions, our systems-thinking approach, and our vision for building operational software systems and connected digital infrastructure."
+        url="https://www.pedzaworks.com/about"
+        keywords={[
+          "about pedzaworks",
+          "systems thinking",
+          "operational software systems",
+          "digital infrastructure",
+          "workflow platforms",
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Pedzaworks Digital Solutions",
+          url: "https://www.pedzaworks.com/about",
+          description:
+            "Learn about Pedzaworks Digital Solutions, our systems-thinking approach, and our vision for building operational software systems and connected digital infrastructure.",
+        }}
+      />
       <style>{`
         .pw-about {
           --co-red: var(--pw-red);
