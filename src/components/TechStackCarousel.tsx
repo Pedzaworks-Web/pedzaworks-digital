@@ -31,8 +31,6 @@ const TechStackCarousel: React.FC = () => {
   const nudge = (direction: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
-
-    // Once user interacts, permanently stop auto scroll
     if (!isPaused) setIsPaused(true);
 
     const step = 180;
@@ -49,17 +47,18 @@ const TechStackCarousel: React.FC = () => {
           background: var(--pw-bg-base);
         }
 
-        /* Use same container spacing approach as hero & connected section */
+        /* Unified container spacing on all breakpoints */
         .pw-tech__inner {
-          width: min(1280px, calc(100% - 3rem));
+          width: 100%;
+          max-width: 1280px;
           margin: 0 auto;
           padding-top: 56px;
           padding-bottom: 64px;
+          padding-inline: clamp(1rem, 5vw, 3rem);
         }
 
         @media (max-width: 860px) {
           .pw-tech__inner {
-            width: calc(100% - 2rem);
             padding-top: 40px;
             padding-bottom: 48px;
           }
@@ -67,15 +66,8 @@ const TechStackCarousel: React.FC = () => {
 
         @media (max-width: 640px) {
           .pw-tech__inner {
-            width: calc(100% - 1.75rem);
             padding-top: 32px;
             padding-bottom: 40px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .pw-tech__inner {
-            width: calc(100% - 1.5rem);
           }
         }
 

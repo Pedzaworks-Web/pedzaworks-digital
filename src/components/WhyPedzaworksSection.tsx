@@ -39,8 +39,14 @@ const WhyPedzaworksSection: React.FC = () => {
         .pw-wp {
           position: relative;
           overflow: hidden;
-          background: radial-gradient(circle at top left,#f9fafb 0%,#f3f4f7 50%,#eef2f7 100%);
           isolation: isolate;
+          background:
+            radial-gradient(
+              circle at top left,
+              color-mix(in srgb, var(--bg-secondary) 78%, var(--bg-primary) 22%) 0%,
+              color-mix(in srgb, var(--bg-primary) 82%, var(--bg-elevated) 18%) 50%,
+              color-mix(in srgb, var(--bg-primary) 74%, var(--bg-elevated) 26%) 100%
+            );
         }
 
         .pw-wp .container-custom {
@@ -54,15 +60,17 @@ const WhyPedzaworksSection: React.FC = () => {
           inset: 0;
           pointer-events: none;
           background-image:
-            linear-gradient(rgba(148,163,184,0.06) 1px,transparent 1px),
-            linear-gradient(90deg,rgba(148,163,184,0.06) 1px,transparent 1px);
+            linear-gradient(color-mix(in srgb, var(--text-muted) 14%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--text-muted) 14%, transparent) 1px, transparent 1px);
           background-size: 80px 80px;
-          mask-image: linear-gradient(180deg,
+          mask-image: linear-gradient(
+            180deg,
             transparent 0%,
             rgba(0,0,0,0.5) 18%,
             rgba(0,0,0,0.85) 55%,
             rgba(0,0,0,0.5) 82%,
-            transparent 100%);
+            transparent 100%
+          );
           opacity: 0.65;
         }
 
@@ -75,7 +83,6 @@ const WhyPedzaworksSection: React.FC = () => {
           align-items: flex-start;
         }
 
-        /* subtle vertical bridge between columns */
         .pw-wp__bridge {
           position: absolute;
           left: 50%;
@@ -84,16 +91,15 @@ const WhyPedzaworksSection: React.FC = () => {
           width: 1px;
           background: linear-gradient(
             to bottom,
-            rgba(148,163,184,0),
-            rgba(148,163,184,0.35) 18%,
-            rgba(148,163,184,0.2) 60%,
-            rgba(148,163,184,0) 100%
+            transparent,
+            color-mix(in srgb, var(--text-muted) 35%, transparent) 18%,
+            color-mix(in srgb, var(--text-muted) 20%, transparent) 60%,
+            transparent 100%
           );
           opacity: 0.55;
           pointer-events: none;
         }
 
-        /* left column */
         .pw-wp__left {
           position: relative;
           max-width: 640px;
@@ -105,10 +111,10 @@ const WhyPedzaworksSection: React.FC = () => {
           gap: 0.5rem;
           padding: 5px 13px 5px 9px;
           border-radius: 999px;
-          background: rgba(200,30,30,0.045);
-          border: 1px solid rgba(200,30,30,0.16);
-          color: var(--pw-red);
-          font-family: "DM Mono", monospace;
+          background: color-mix(in srgb, var(--primary-red) 5%, transparent);
+          border: 1px solid color-mix(in srgb, var(--primary-red) 16%, transparent);
+          color: var(--primary-red);
+          font-family: var(--font-mono, "DM Mono", monospace);
           font-size: 0.64rem;
           letter-spacing: 0.16em;
           text-transform: uppercase;
@@ -119,31 +125,30 @@ const WhyPedzaworksSection: React.FC = () => {
           width: 6px;
           height: 6px;
           border-radius: 999px;
-          background: var(--pw-red);
-          box-shadow: 0 0 0 3px rgba(200,30,30,0.18);
+          background: var(--primary-red);
+          box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-red) 18%, transparent);
         }
 
         .pw-wp__heading {
-          font-size: 1.35rem;
+          font-size: clamp(2rem, 3vw, 2.5rem);
           font-weight: 800;
           letter-spacing: -0.05em;
           line-height: 1.05;
           margin-bottom: 1rem;
-          color: var(--pw-text-primary);
+          color: var(--text-primary);
         }
 
         .pw-wp__body {
           font-size: 1.02rem;
           line-height: 1.85;
-          color: var(--pw-text-secondary);
+          color: var(--text-secondary);
           max-width: 36rem;
         }
 
-        /* meta strip + subtle baseline */
         .pw-wp__meta-wrapper {
           margin-top: 1.9rem;
           padding-top: 1.2rem;
-          border-top: 1px solid rgba(148,163,184,0.28);
+          border-top: 1px solid color-mix(in srgb, var(--text-muted) 28%, transparent);
           position: relative;
         }
 
@@ -152,8 +157,8 @@ const WhyPedzaworksSection: React.FC = () => {
           flex-wrap: wrap;
           gap: 1.1rem 1.75rem;
           font-size: 0.8rem;
-          color: var(--pw-text-muted);
-          font-family: "DM Mono", monospace;
+          color: var(--text-muted);
+          font-family: var(--font-mono, "DM Mono", monospace);
           letter-spacing: 0.16em;
           text-transform: uppercase;
         }
@@ -173,11 +178,10 @@ const WhyPedzaworksSection: React.FC = () => {
           width: 7px;
           height: 7px;
           border-radius: 999px;
-          background: var(--pw-red);
-          box-shadow: 0 0 0 3px rgba(200,30,30,0.18);
+          background: var(--primary-red);
+          box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-red) 18%, transparent);
         }
 
-        /* small image occupying lower-left whitespace */
         .pw-wp__image-shell {
           margin-top: 1.6rem;
           display: inline-flex;
@@ -185,7 +189,12 @@ const WhyPedzaworksSection: React.FC = () => {
           padding: 0.55rem 0.7rem;
           border-radius: 999px;
           border: none;
-          background: radial-gradient(circle at left,#f9fafb 0,#f3f4f7 42%,transparent 100%);
+          background: radial-gradient(
+            circle at left,
+            color-mix(in srgb, var(--bg-secondary) 82%, var(--bg-primary) 18%) 0,
+            color-mix(in srgb, var(--bg-primary) 88%, var(--bg-elevated) 12%) 42%,
+            transparent 100%
+          );
           backdrop-filter: blur(4px);
         }
 
@@ -199,7 +208,6 @@ const WhyPedzaworksSection: React.FC = () => {
           margin-top: -40px;
         }
 
-        /* right column */
         .pw-wp__right {
           display: flex;
           flex-direction: column;
@@ -211,10 +219,14 @@ const WhyPedzaworksSection: React.FC = () => {
           position: relative;
           padding: 1.95rem 1.9rem 2.1rem;
           border-radius: 18px;
-          border: 1px solid rgba(15,23,42,0.06);
+          border: 1px solid color-mix(in srgb, var(--text-primary) 6%, transparent);
           background:
-            radial-gradient(circle at top right,rgba(248,113,113,0.065) 0,transparent 55%),
-            rgba(248,250,252,0.92);
+            radial-gradient(
+              circle at top right,
+              color-mix(in srgb, var(--primary-red) 8%, transparent) 0,
+              transparent 55%
+            ),
+            color-mix(in srgb, var(--bg-secondary) 72%, var(--bg-elevated) 28%);
           box-shadow:
             0 18px 60px rgba(15,23,42,0.12),
             inset 0 1px 0 rgba(255,255,255,0.95);
@@ -225,7 +237,7 @@ const WhyPedzaworksSection: React.FC = () => {
           position: absolute;
           inset: 16px 14px;
           border-radius: 14px;
-          border: 1px dashed rgba(148,163,184,0.35);
+          border: 1px dashed color-mix(in srgb, var(--text-muted) 34%, transparent);
           opacity: 0.9;
           pointer-events: none;
         }
@@ -235,9 +247,9 @@ const WhyPedzaworksSection: React.FC = () => {
           inset: 0;
           pointer-events: none;
           background-image:
-            radial-gradient(circle at 0 0, rgba(15,23,42,0.12) 0, transparent 55%),
-            linear-gradient(120deg,rgba(148,163,184,0.32) 0,transparent 40%),
-            linear-gradient(300deg,rgba(148,163,184,0.18) 10%,transparent 55%);
+            radial-gradient(circle at 0 0, color-mix(in srgb, var(--text-primary) 12%, transparent) 0, transparent 55%),
+            linear-gradient(120deg, color-mix(in srgb, var(--text-muted) 32%, transparent) 0, transparent 40%),
+            linear-gradient(300deg, color-mix(in srgb, var(--text-muted) 18%, transparent) 10%, transparent 55%);
           mix-blend-mode: multiply;
           opacity: 0.14;
         }
@@ -253,7 +265,7 @@ const WhyPedzaworksSection: React.FC = () => {
         .pw-wp__item {
           position: relative;
           padding-bottom: 1.1rem;
-          border-bottom: 1px solid rgba(148,163,184,0.28);
+          border-bottom: 1px solid color-mix(in srgb, var(--text-muted) 28%, transparent);
         }
 
         .pw-wp__item:last-of-type {
@@ -266,18 +278,18 @@ const WhyPedzaworksSection: React.FC = () => {
           align-items: center;
           gap: 0.4rem;
           margin-bottom: 0.55rem;
-          font-family: "DM Mono", monospace;
+          font-family: var(--font-mono, "DM Mono", monospace);
           font-size: 0.67rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: var(--pw-text-muted);
+          color: var(--text-muted);
         }
 
         .pw-wp__item-dot {
           width: 6px;
           height: 6px;
           border-radius: 999px;
-          background: rgba(15,23,42,0.9);
+          background: color-mix(in srgb, var(--text-primary) 90%, transparent);
         }
 
         .pw-wp__item-title {
@@ -285,13 +297,14 @@ const WhyPedzaworksSection: React.FC = () => {
           font-weight: 600;
           letter-spacing: -0.02em;
           margin-bottom: 0.25rem;
-          color: var(--pw-text-primary);
+          color: var(--text-primary);
+          transition: color 220ms ease;
         }
 
         .pw-wp__item-body {
           font-size: 0.9rem;
           line-height: 1.7;
-          color: var(--pw-text-secondary);
+          color: var(--text-secondary);
         }
 
         .pw-wp__rail {
@@ -300,7 +313,11 @@ const WhyPedzaworksSection: React.FC = () => {
           top: 20px;
           bottom: 20px;
           width: 2px;
-          background: linear-gradient(to bottom,rgba(148,163,184,0.2),rgba(148,163,184,0.6));
+          background: linear-gradient(
+            to bottom,
+            color-mix(in srgb, var(--text-muted) 20%, transparent),
+            color-mix(in srgb, var(--text-muted) 60%, transparent)
+          );
           opacity: 0.75;
         }
 
@@ -310,8 +327,8 @@ const WhyPedzaworksSection: React.FC = () => {
           width: 10px;
           height: 10px;
           border-radius: 999px;
-          background: #f9fafb;
-          border: 2px solid rgba(148,163,184,0.85);
+          background: var(--bg-secondary);
+          border: 2px solid color-mix(in srgb, var(--text-muted) 85%, transparent);
         }
 
         .pw-wp__rail-node:nth-of-type(1) { top: 10%; }
@@ -319,55 +336,8 @@ const WhyPedzaworksSection: React.FC = () => {
         .pw-wp__rail-node:nth-of-type(3) { top: 63%; }
         .pw-wp__rail-node:nth-of-type(4) { top: 88%; }
 
-        /* hover – restrained */
         .pw-wp__item:hover .pw-wp__item-title {
-          color: var(--pw-red);
-        }
-
-        /* responsive */
-
-
-        /* responsive */
-        @media (max-width: 1100px) {
-        .pw-wp__inner {
-            grid-template-columns: minmax(0, 1fr);
-            gap: 3rem;
-        }
-
-        .pw-wp__bridge {
-            display: none;
-        }
-
-        .pw-wp__right {
-            max-width: 640px;
-        }
-
-        .pw-wp__image-shell {
-            margin-top: 1.3rem;
-        }
-        }
-
-        @media (max-width: 680px) {
-        .pw-wp .container-custom {
-            width: calc(100% - 2rem);
-        }
-
-        .pw-wp__heading {
-            font-size: clamp(1.9rem, 7vw, 2.2rem);
-        }
-
-        .pw-wp__principles {
-            padding: 1.5rem 1.4rem 1.6rem;
-        }
-
-        .pw-wp__rail {
-            display: none;
-        }
-
-        /* hide topology image on mobile */
-        .pw-wp__image-shell {
-            display: none;
-        }
+          color: var(--primary-red);
         }
 
         @media (max-width: 1100px) {
@@ -395,7 +365,12 @@ const WhyPedzaworksSection: React.FC = () => {
           }
 
           .pw-wp__heading {
-            font-size: clamp(1.9rem, 7vw, 2.2rem);
+            font-size: clamp(1.65rem, 6vw, 1.95rem);
+          }
+
+          .pw-wp__body {
+            font-size: 0.97rem;
+            line-height: 1.75;
           }
 
           .pw-wp__principles {
@@ -403,6 +378,10 @@ const WhyPedzaworksSection: React.FC = () => {
           }
 
           .pw-wp__rail {
+            display: none;
+          }
+
+          .pw-wp__image-shell {
             display: none;
           }
         }

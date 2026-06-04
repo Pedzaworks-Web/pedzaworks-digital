@@ -151,37 +151,24 @@ const FinalCallToActionSection: React.FC = () => {
     <>
       <style>{`
         .pw-fc {
-          --fc-red:         #c81e1e;
-          --fc-red-hover:   #e03131;
-          --fc-red-glow:    rgba(200,30,30,0.13);
-          --fc-red-border:  rgba(200,30,30,0.18);
-          --fc-surface:     #ffffff;
-          --fc-surface-2:   #f9fafb;
-          --fc-bg:          #f3f6fa;
-          --fc-bg-deep:     #eaecf5;
-          --fc-border:      rgba(15,23,42,0.07);
-          --fc-border-md:   rgba(15,23,42,0.10);
-          --fc-text-1:      #0c1220;
-          --fc-text-2:      #3d4f6b;
-          --fc-text-3:      #7a8ba3;
-          --fc-mono:        "DM Mono", "Fira Mono", monospace;
-          --fc-r-sm:        8px;
-          --fc-r-md:        12px;
-          --fc-r-lg:        16px;
-          --fc-r-xl:        20px;
-
           position: relative;
           overflow: hidden;
-          background: linear-gradient(160deg, #edf1f7 0%, #f3f6fa 55%, #eef1f6 100%);
           isolation: isolate;
+          background:
+            linear-gradient(
+              160deg,
+              var(--bg-primary) 0%,
+              color-mix(in srgb, var(--bg-primary) 82%, var(--bg-elevated) 18%) 55%,
+              color-mix(in srgb, var(--bg-primary) 76%, var(--bg-secondary) 24%) 100%
+            );
         }
 
         .pw-fc__bg-grid {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(100,116,139,0.055) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(100,116,139,0.055) 1px, transparent 1px);
+            linear-gradient(color-mix(in srgb, var(--text-muted) 12%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--text-muted) 12%, transparent) 1px, transparent 1px);
           background-size: 64px 64px;
           pointer-events: none;
           mask-image: linear-gradient(
@@ -198,9 +185,21 @@ const FinalCallToActionSection: React.FC = () => {
           position: absolute;
           inset: 0;
           background:
-            radial-gradient(ellipse 56% 42% at 12% 102%, rgba(200,30,30,0.06) 0%, transparent 72%),
-            radial-gradient(ellipse 42% 36% at 90% -2%, rgba(200,30,30,0.05) 0%, transparent 70%),
-            radial-gradient(ellipse 36% 26% at 50% 100%, rgba(100,116,139,0.05) 0%, transparent 70%);
+            radial-gradient(
+              ellipse 56% 42% at 12% 102%,
+              color-mix(in srgb, var(--primary-red) 8%, transparent) 0%,
+              transparent 72%
+            ),
+            radial-gradient(
+              ellipse 42% 36% at 90% -2%,
+              color-mix(in srgb, var(--primary-red) 7%, transparent) 0%,
+              transparent 70%
+            ),
+            radial-gradient(
+              ellipse 36% 26% at 50% 100%,
+              color-mix(in srgb, var(--text-muted) 10%, transparent) 0%,
+              transparent 70%
+            );
           pointer-events: none;
         }
 
@@ -213,9 +212,9 @@ const FinalCallToActionSection: React.FC = () => {
           background: linear-gradient(
             90deg,
             transparent,
-            rgba(200,30,30,0.20) 25%,
-            rgba(200,30,30,0.34) 50%,
-            rgba(200,30,30,0.20) 75%,
+            color-mix(in srgb, var(--primary-red) 20%, transparent) 25%,
+            color-mix(in srgb, var(--primary-red) 34%, transparent) 50%,
+            color-mix(in srgb, var(--primary-red) 20%, transparent) 75%,
             transparent
           );
           transform-origin: left;
@@ -237,11 +236,15 @@ const FinalCallToActionSection: React.FC = () => {
           position: relative;
           overflow: hidden;
           padding: clamp(3rem, 6vw, 5rem) clamp(1.4rem, 4vw, 4rem);
-          border: 1px solid var(--fc-border-md);
-          border-radius: var(--fc-r-xl);
+          border: 1px solid var(--border-color);
+          border-radius: 20px;
           background:
-            linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.80)),
-            var(--fc-surface);
+            linear-gradient(
+              180deg,
+              color-mix(in srgb, var(--bg-secondary) 88%, transparent),
+              color-mix(in srgb, var(--bg-secondary) 80%, transparent)
+            ),
+            var(--bg-card);
           box-shadow:
             0 1px 2px rgba(0,0,0,0.04),
             0 10px 40px rgba(0,0,0,0.07),
@@ -254,8 +257,16 @@ const FinalCallToActionSection: React.FC = () => {
           position: absolute;
           inset: 0;
           background:
-            radial-gradient(180px circle at 0% 100%, rgba(200,30,30,0.06) 0%, transparent 75%),
-            radial-gradient(220px circle at 100% 0%, rgba(100,116,139,0.05) 0%, transparent 75%);
+            radial-gradient(
+              180px circle at 0% 100%,
+              color-mix(in srgb, var(--primary-red) 8%, transparent) 0%,
+              transparent 75%
+            ),
+            radial-gradient(
+              220px circle at 100% 0%,
+              color-mix(in srgb, var(--text-muted) 10%, transparent) 0%,
+              transparent 75%
+            );
           pointer-events: none;
         }
 
@@ -264,8 +275,8 @@ const FinalCallToActionSection: React.FC = () => {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(100,116,139,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(100,116,139,0.03) 1px, transparent 1px);
+            linear-gradient(color-mix(in srgb, var(--text-muted) 7%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--text-muted) 7%, transparent) 1px, transparent 1px);
           background-size: 28px 28px;
           mask-image: radial-gradient(circle at center, rgba(0,0,0,0.6), transparent 82%);
           pointer-events: none;
@@ -281,13 +292,13 @@ const FinalCallToActionSection: React.FC = () => {
         }
 
         .pw-fc__topology path {
-          stroke: rgba(100,116,139,0.18);
+          stroke: color-mix(in srgb, var(--text-muted) 24%, transparent);
           stroke-width: 1;
           vector-effect: non-scaling-stroke;
         }
 
         .pw-fc__topology circle {
-          fill: rgba(200,30,30,0.82);
+          fill: color-mix(in srgb, var(--primary-red) 82%, transparent);
         }
 
         .pw-fc__header {
@@ -302,11 +313,11 @@ const FinalCallToActionSection: React.FC = () => {
           align-items: center;
           gap: 0.5rem;
           padding: 5px 13px 5px 9px;
-          border-radius: var(--fc-r-sm);
-          background: rgba(200,30,30,0.055);
-          border: 1px solid var(--fc-red-border);
-          color: var(--fc-red);
-          font-family: var(--fc-mono);
+          border-radius: 8px;
+          background: color-mix(in srgb, var(--primary-red) 6%, transparent);
+          border: 1px solid color-mix(in srgb, var(--primary-red) 18%, transparent);
+          color: var(--primary-red);
+          font-family: var(--font-mono, "DM Mono", "Fira Mono", monospace);
           font-size: 0.64rem;
           letter-spacing: 0.16em;
           text-transform: uppercase;
@@ -318,18 +329,18 @@ const FinalCallToActionSection: React.FC = () => {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: var(--fc-red);
-          box-shadow: 0 0 0 3px rgba(200,30,30,0.18);
+          background: var(--primary-red);
+          box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-red) 18%, transparent);
           flex-shrink: 0;
           will-change: transform;
         }
 
         .pw-fc__title {
-          font-size: 40px;
+          font-size: clamp(2rem, 3vw, 2.5rem);
           font-weight: 800;
           letter-spacing: -0.055em;
           line-height: 1.02;
-          color: var(--fc-text-1);
+          color: var(--text-primary);
           margin: 0 0 1.15rem;
           max-width: 13ch;
           will-change: transform, opacity;
@@ -337,7 +348,7 @@ const FinalCallToActionSection: React.FC = () => {
 
         .pw-fc__title mark {
           background: none;
-          color: var(--fc-red);
+          color: var(--primary-red);
         }
 
         .pw-fc__lead {
@@ -345,7 +356,7 @@ const FinalCallToActionSection: React.FC = () => {
           max-width: 68ch;
           font-size: 1.05rem;
           line-height: 1.82;
-          color: var(--fc-text-2);
+          color: var(--text-secondary);
           will-change: transform, opacity;
         }
 
@@ -369,7 +380,7 @@ const FinalCallToActionSection: React.FC = () => {
           justify-content: center;
           min-height: 48px;
           padding: 12px 22px;
-          border-radius: var(--fc-r-sm);
+          border-radius: 8px;
           border: 1px solid transparent;
           text-decoration: none;
           cursor: pointer;
@@ -386,7 +397,7 @@ const FinalCallToActionSection: React.FC = () => {
         }
 
         .pw-fc__button:focus-visible {
-          outline: 2px solid rgba(200,30,30,0.28);
+          outline: 2px solid color-mix(in srgb, var(--primary-red) 28%, transparent);
           outline-offset: 3px;
         }
 
@@ -431,10 +442,10 @@ const FinalCallToActionSection: React.FC = () => {
         }
 
         .pw-fc__button--primary {
-          background: var(--fc-red);
+          background: var(--primary-red);
           color: #fff;
-          box-shadow: 0 10px 30px rgba(200,30,30,0.18);
-          font-family: var(--fc-mono);
+          box-shadow: 0 10px 30px color-mix(in srgb, var(--primary-red) 22%, transparent);
+          font-family: var(--font-mono, "DM Mono", "Fira Mono", monospace);
           font-size: 0.7rem;
           font-weight: 600;
           letter-spacing: 0.08em;
@@ -442,18 +453,18 @@ const FinalCallToActionSection: React.FC = () => {
         }
 
         .pw-fc__button--primary:hover {
-          background: var(--fc-red-hover);
+          background: var(--primary-red-hover);
           transform: translateY(-2px);
         }
 
         .pw-fc__button--secondary {
-          background: rgba(255,255,255,0.72);
-          color: var(--fc-text-1);
-          border-color: var(--fc-border-md);
+          background: color-mix(in srgb, var(--bg-secondary) 72%, transparent);
+          color: var(--text-primary);
+          border-color: var(--border-color);
           box-shadow:
             inset 0 1px 0 rgba(255,255,255,0.85),
             0 4px 20px rgba(15,23,42,0.04);
-          font-family: var(--fc-mono);
+          font-family: var(--font-mono, "DM Mono", "Fira Mono", monospace);
           font-size: 0.7rem;
           font-weight: 600;
           letter-spacing: 0.08em;
@@ -462,9 +473,9 @@ const FinalCallToActionSection: React.FC = () => {
 
         .pw-fc__button--secondary:hover {
           transform: translateY(-2px);
-          border-color: rgba(200,30,30,0.18);
-          color: var(--fc-red);
-          background: #fff;
+          border-color: color-mix(in srgb, var(--primary-red) 18%, transparent);
+          color: var(--primary-red);
+          background: var(--bg-secondary);
         }
 
         .pw-fc__indicator-row {
@@ -482,8 +493,8 @@ const FinalCallToActionSection: React.FC = () => {
           align-items: center;
           gap: 0.5rem;
           padding: 0;
-          color: var(--fc-text-2);
-          font-family: var(--fc-mono);
+          color: var(--text-secondary);
+          font-family: var(--font-mono, "DM Mono", "Fira Mono", monospace);
           font-size: 0.68rem;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -495,7 +506,7 @@ const FinalCallToActionSection: React.FC = () => {
         .pw-fc__indicator-icon {
           width: 14px;
           height: 14px;
-          color: var(--fc-red);
+          color: var(--primary-red);
           flex-shrink: 0;
         }
 
@@ -503,23 +514,28 @@ const FinalCallToActionSection: React.FC = () => {
           position: relative;
           z-index: 1;
           margin: 1.55rem 0 0;
-          font-family: var(--fc-mono);
+          font-family: var(--font-mono, "DM Mono", "Fira Mono", monospace);
           font-size: 0.68rem;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: var(--fc-text-3);
+          color: var(--text-muted);
           will-change: transform, opacity;
         }
 
         @media (max-width: 760px) {
+          .pw-fc .container-custom {
+            width: calc(100% - 2rem);
+            margin-top: -24px;
+          }
+
           .pw-fc__panel {
             padding: 2.25rem 1.15rem;
-            border-radius: var(--fc-r-lg);
+            border-radius: 16px;
           }
 
           .pw-fc__title {
             max-width: 11ch;
-            font-size: clamp(2rem, 8vw, 2.9rem);
+            font-size: clamp(1.65rem, 6vw, 1.95rem);
           }
 
           .pw-fc__lead {
@@ -569,30 +585,6 @@ const FinalCallToActionSection: React.FC = () => {
 
         <div className="container-custom pw-fc__inner">
           <div className="pw-fc__panel" data-fc-panel>
-            <svg
-              className="pw-fc__topology"
-              data-fc-topology
-              viewBox="0 0 1200 500"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path d="M96 150H268L330 212H484L562 128H724L804 204H980L1104 132" />
-              <path d="M140 362H312L382 298H520L600 364H770L852 300H1034" />
-              <path d="M186 240C250 240 290 194 348 194C420 194 446 280 534 280C628 280 660 182 742 182C824 182 858 252 936 252C996 252 1034 214 1082 214" />
-              <circle cx="268" cy="150" r="3.5" />
-              <circle cx="562" cy="128" r="3.5" />
-              <circle cx="804" cy="204" r="3.5" />
-              <circle cx="980" cy="204" r="3.5" />
-              <circle cx="312" cy="362" r="3.5" />
-              <circle cx="600" cy="364" r="3.5" />
-              <circle cx="852" cy="300" r="3.5" />
-              <circle cx="534" cy="280" r="3.5" />
-              <circle cx="742" cy="182" r="3.5" />
-              <circle cx="936" cy="252" r="3.5" />
-            </svg>
-
             <div className="pw-fc__header" data-fc-header>
               <div className="pw-fc__kicker" data-fc-kicker>
                 <span className="pw-fc__kicker-dot" />

@@ -231,31 +231,17 @@ const ConnectedOperationsSection: React.FC = () => {
   return (
     <>
       <style>{`
-        /* ── Tokens ─────────────────────────────────────────── */
         .pw-co {
-          --co-red:         #c81e1e;
-          --co-red-hover:   #e03131;
-          --co-red-glow:    rgba(200,30,30,0.13);
-          --co-red-border:  rgba(200,30,30,0.18);
-          --co-surface:     #ffffff;
-          --co-surface-2:   #f9fafb;
-          --co-bg:          #f3f6fa;
-          --co-bg-deep:     #eaecf5;
-          --co-border:      rgba(15,23,42,0.07);
-          --co-border-md:   rgba(15,23,42,0.10);
-          --co-text-1:      #0c1220;
-          --co-text-2:      #3d4f6b;
-          --co-text-3:      #7a8ba3;
-          --co-mono:        "DM Mono", "Fira Mono", monospace;
-          --co-r-sm:        8px;
-          --co-r-md:        12px;
-          --co-r-lg:        16px;
-          --co-r-xl:        20px;
-
           position: relative;
           overflow: hidden;
-          background: linear-gradient(160deg, #edf1f7 0%, #f3f6fa 55%, #eef1f6 100%);
           isolation: isolate;
+          background:
+            linear-gradient(
+              160deg,
+              var(--bg-primary) 0%,
+              color-mix(in srgb, var(--bg-primary) 78%, var(--bg-elevated) 22%) 55%,
+              color-mix(in srgb, var(--bg-primary) 72%, var(--bg-secondary) 28%) 100%
+            );
         }
 
         /* ── Backgrounds ─────────────────────────────────────── */
@@ -263,11 +249,12 @@ const ConnectedOperationsSection: React.FC = () => {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(100,116,139,0.065) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(100,116,139,0.065) 1px, transparent 1px);
+            linear-gradient(color-mix(in srgb, var(--text-muted) 14%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--text-muted) 14%, transparent) 1px, transparent 1px);
           background-size: 64px 64px;
           pointer-events: none;
-          mask-image: linear-gradient(180deg,
+          mask-image: linear-gradient(
+            180deg,
             transparent 0%,
             rgba(0,0,0,0.45) 12%,
             rgba(0,0,0,0.9) 32%,
@@ -280,21 +267,36 @@ const ConnectedOperationsSection: React.FC = () => {
           position: absolute;
           inset: 0;
           background:
-            radial-gradient(ellipse 65% 45% at 8% 108%,  rgba(200,30,30,0.07)  0%, transparent 70%),
-            radial-gradient(ellipse 55% 48% at 96% -5%, rgba(200,30,30,0.055) 0%, transparent 68%),
-            radial-gradient(ellipse 40% 30% at 60% 105%, rgba(100,116,139,0.06) 0%, transparent 65%);
+            radial-gradient(
+              ellipse 65% 45% at 8% 108%,
+              color-mix(in srgb, var(--primary-red) 10%, transparent) 0%,
+              transparent 70%
+            ),
+            radial-gradient(
+              ellipse 55% 48% at 96% -5%,
+              color-mix(in srgb, var(--primary-red) 8%, transparent) 0%,
+              transparent 68%
+            ),
+            radial-gradient(
+              ellipse 40% 30% at 60% 105%,
+              color-mix(in srgb, var(--text-muted) 10%, transparent) 0%,
+              transparent 65%
+            );
           pointer-events: none;
         }
 
         .pw-co__top-rule {
           position: absolute;
-          top: 0; left: 0; right: 0;
+          top: 0;
+          left: 0;
+          right: 0;
           height: 1px;
-          background: linear-gradient(90deg,
+          background: linear-gradient(
+            90deg,
             transparent,
-            rgba(200,30,30,0.22) 25%,
-            rgba(200,30,30,0.36) 50%,
-            rgba(200,30,30,0.22) 75%,
+            color-mix(in srgb, var(--primary-red) 22%, transparent) 25%,
+            color-mix(in srgb, var(--primary-red) 34%, transparent) 50%,
+            color-mix(in srgb, var(--primary-red) 22%, transparent) 75%,
             transparent
           );
           transform-origin: left;
@@ -307,7 +309,10 @@ const ConnectedOperationsSection: React.FC = () => {
           margin-top: -50px;
         }
 
-        .pw-co__inner { position: relative; z-index: 1; }
+        .pw-co__inner {
+          position: relative;
+          z-index: 1;
+        }
 
         /* ── Header ──────────────────────────────────────────── */
         .pw-co__header {
@@ -324,11 +329,11 @@ const ConnectedOperationsSection: React.FC = () => {
           align-items: center;
           gap: 0.5rem;
           padding: 5px 13px 5px 9px;
-          border-radius: var(--co-r-sm);
-          background: rgba(200,30,30,0.055);
-          border: 1px solid var(--co-red-border);
-          color: var(--co-red);
-          font-family: var(--co-mono);
+          border-radius: 8px;
+          background: color-mix(in srgb, var(--primary-red) 6%, transparent);
+          border: 1px solid color-mix(in srgb, var(--primary-red) 18%, transparent);
+          color: var(--primary-red);
+          font-family: var(--font-mono, "DM Mono", "Fira Mono", monospace);
           font-size: 0.64rem;
           letter-spacing: 0.16em;
           text-transform: uppercase;
@@ -340,32 +345,32 @@ const ConnectedOperationsSection: React.FC = () => {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: var(--co-red);
-          box-shadow: 0 0 0 3px rgba(200,30,30,0.18);
+          background: var(--primary-red);
+          box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-red) 18%, transparent);
           flex-shrink: 0;
           will-change: transform;
         }
 
         /* ── Title ───────────────────────────────────────────── */
         .pw-co__title {
-          font-size: 40px;
+          font-size: clamp(2rem, 3vw, 2.5rem);
           font-weight: 800;
           letter-spacing: -0.052em;
           line-height: 1.07;
-          color: var(--co-text-1);
+          color: var(--text-primary);
           margin-bottom: 1.15rem;
           will-change: transform, opacity;
         }
 
         .pw-co__title mark {
           background: none;
-          color: var(--co-red);
+          color: var(--primary-red);
         }
 
         .pw-co__lead {
           font-size: 1.0625rem;
           line-height: 1.78;
-          color: var(--co-text-2);
+          color: var(--text-secondary);
           max-width: 52ch;
           will-change: transform, opacity;
         }
@@ -373,14 +378,14 @@ const ConnectedOperationsSection: React.FC = () => {
         /* ── Section image ──────────────────────────────────── */
         .pw-co__image-wrap {
           position: relative;
-          border-radius: var(--co-r-xl);
+          border-radius: 20px;
           overflow: hidden;
-          border: 1px solid var(--co-border-md);
+          border: 1px solid var(--border-color);
           box-shadow:
             0 1px 2px rgba(0,0,0,0.04),
             0 8px 32px rgba(0,0,0,0.08),
             inset 0 1px 0 rgba(255,255,255,0.85);
-          background: var(--co-surface);
+          background: var(--bg-card);
           width: 100%;
           max-width: 420px;
           height: 320px;
@@ -391,7 +396,7 @@ const ConnectedOperationsSection: React.FC = () => {
           content: "";
           position: absolute;
           inset: 0;
-          border-radius: var(--co-r-xl);
+          border-radius: 20px;
           box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
           pointer-events: none;
         }
@@ -422,20 +427,21 @@ const ConnectedOperationsSection: React.FC = () => {
         .pw-co__divider-line {
           flex: 1;
           height: 1px;
-          background: linear-gradient(90deg,
+          background: linear-gradient(
+            90deg,
             transparent,
-            var(--co-border-md) 40%,
-            var(--co-border-md) 60%,
+            color-mix(in srgb, var(--border-color) 100%, transparent) 40%,
+            color-mix(in srgb, var(--border-color) 100%, transparent) 60%,
             transparent
           );
         }
 
         .pw-co__divider-label {
-          font-family: var(--co-mono);
+          font-family: var(--font-mono, "DM Mono", "Fira Mono", monospace);
           font-size: 0.61rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: var(--co-text-3);
+          color: var(--text-muted);
           white-space: nowrap;
           flex-shrink: 0;
         }
@@ -445,9 +451,9 @@ const ConnectedOperationsSection: React.FC = () => {
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 1px;
-          background: var(--co-border-md);
-          border: 1px solid var(--co-border-md);
-          border-radius: var(--co-r-xl);
+          background: color-mix(in srgb, var(--border-color) 100%, transparent);
+          border: 1px solid var(--border-color);
+          border-radius: 20px;
           overflow: hidden;
           box-shadow:
             0 1px 3px rgba(0,0,0,0.04),
@@ -459,7 +465,7 @@ const ConnectedOperationsSection: React.FC = () => {
         .pw-co__card {
           position: relative;
           padding: 2.1rem 2rem 1.8rem;
-          background: var(--co-surface);
+          background: var(--bg-card);
           overflow: hidden;
           display: flex;
           flex-direction: column;
@@ -472,8 +478,9 @@ const ConnectedOperationsSection: React.FC = () => {
           content: "";
           position: absolute;
           inset: 0;
-          background: radial-gradient(120px circle at 100% 100%,
-            rgba(200,30,30,0.075) 0%,
+          background: radial-gradient(
+            120px circle at 100% 100%,
+            color-mix(in srgb, var(--primary-red) 8%, transparent) 0%,
             transparent 70%
           );
           opacity: 0;
@@ -484,21 +491,30 @@ const ConnectedOperationsSection: React.FC = () => {
         .pw-co__card::after {
           content: "";
           position: absolute;
-          top: 0; left: 0;
-          width: 64px; height: 64px;
-          background: linear-gradient(135deg,
-            rgba(100,116,139,0.055) 0%,
+          top: 0;
+          left: 0;
+          width: 64px;
+          height: 64px;
+          background: linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--text-muted) 10%, transparent) 0%,
             transparent 60%
           );
           pointer-events: none;
         }
 
-        .pw-co__card:hover { background: #fafbfe; }
-        .pw-co__card:hover::before { opacity: 1; }
+        .pw-co__card:hover {
+          background: color-mix(in srgb, var(--bg-card) 75%, var(--bg-elevated) 25%);
+        }
+
+        .pw-co__card:hover::before {
+          opacity: 1;
+        }
 
         .pw-co__card-shimmer {
           position: absolute;
-          inset-y: 0; left: 0;
+          inset-y: 0;
+          left: 0;
           width: 55%;
           background: linear-gradient(
             105deg,
@@ -513,10 +529,11 @@ const ConnectedOperationsSection: React.FC = () => {
         }
 
         .pw-co__card-texture {
-          position: absolute; inset: 0;
+          position: absolute;
+          inset: 0;
           background-image:
-            linear-gradient(rgba(100,116,139,0.035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(100,116,139,0.035) 1px, transparent 1px);
+            linear-gradient(color-mix(in srgb, var(--text-muted) 8%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--text-muted) 8%, transparent) 1px, transparent 1px);
           background-size: 22px 22px;
           pointer-events: none;
           mask-image: linear-gradient(145deg, rgba(0,0,0,0.45) 0%, transparent 55%);
@@ -531,33 +548,35 @@ const ConnectedOperationsSection: React.FC = () => {
         .pw-co__card-icon {
           width: 44px;
           height: 44px;
-          border-radius: var(--co-r-md);
+          border-radius: 12px;
           display: grid;
           place-items: center;
-          color: var(--co-red);
-          background: linear-gradient(145deg,
-            rgba(200,30,30,0.08),
-            rgba(200,30,30,0.04)
+          color: var(--primary-red);
+          background: linear-gradient(
+            145deg,
+            color-mix(in srgb, var(--primary-red) 8%, transparent),
+            color-mix(in srgb, var(--primary-red) 4%, transparent)
           );
-          border: 1px solid var(--co-red-border);
+          border: 1px solid color-mix(in srgb, var(--primary-red) 18%, transparent);
           flex-shrink: 0;
           transition: background 250ms ease, border-color 250ms ease;
           will-change: transform, opacity;
         }
 
         .pw-co__card:hover .pw-co__card-icon {
-          background: linear-gradient(145deg,
-            rgba(200,30,30,0.13),
-            rgba(200,30,30,0.07)
+          background: linear-gradient(
+            145deg,
+            color-mix(in srgb, var(--primary-red) 13%, transparent),
+            color-mix(in srgb, var(--primary-red) 7%, transparent)
           );
-          border-color: rgba(200,30,30,0.28);
+          border-color: color-mix(in srgb, var(--primary-red) 28%, transparent);
         }
 
         .pw-co__card-title {
           font-size: 1.125rem;
           font-weight: 700;
           letter-spacing: -0.028em;
-          color: var(--co-text-1);
+          color: var(--text-primary);
           margin-bottom: 0.6rem;
           line-height: 1.22;
           position: relative;
@@ -567,7 +586,7 @@ const ConnectedOperationsSection: React.FC = () => {
         .pw-co__card-desc {
           font-size: 0.905rem;
           line-height: 1.72;
-          color: var(--co-text-2);
+          color: var(--text-secondary);
           flex: 1;
           position: relative;
           z-index: 1;
@@ -580,17 +599,17 @@ const ConnectedOperationsSection: React.FC = () => {
           gap: 0.75rem;
           padding-top: 1.2rem;
           margin-top: 1.35rem;
-          border-top: 1px solid var(--co-border);
+          border-top: 1px solid color-mix(in srgb, var(--border-color) 85%, transparent);
           position: relative;
           z-index: 1;
         }
 
         .pw-co__card-footer-label {
-          font-family: var(--co-mono);
+          font-family: var(--font-mono, "DM Mono", "Fira Mono", monospace);
           font-size: 0.62rem;
           letter-spacing: 0.13em;
           text-transform: uppercase;
-          color: var(--co-text-3);
+          color: var(--text-muted);
         }
 
         .pw-co__card-tag {
@@ -598,13 +617,13 @@ const ConnectedOperationsSection: React.FC = () => {
           align-items: center;
           padding: 3px 9px;
           border-radius: 5px;
-          background: rgba(15,23,42,0.04);
-          border: 1px solid var(--co-border-md);
-          font-family: var(--co-mono);
+          background: color-mix(in srgb, var(--text-primary) 4%, transparent);
+          border: 1px solid var(--border-color);
+          font-family: var(--font-mono, "DM Mono", "Fira Mono", monospace);
           font-size: 0.6rem;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: var(--co-text-2);
+          color: var(--text-secondary);
           transition:
             background 240ms ease,
             border-color 240ms ease,
@@ -613,9 +632,9 @@ const ConnectedOperationsSection: React.FC = () => {
         }
 
         .pw-co__card:hover .pw-co__card-tag {
-          background: rgba(200,30,30,0.05);
-          border-color: var(--co-red-border);
-          color: var(--co-red);
+          background: color-mix(in srgb, var(--primary-red) 5%, transparent);
+          border-color: color-mix(in srgb, var(--primary-red) 18%, transparent);
+          color: var(--primary-red);
         }
 
         /* ── Responsive ──────────────────────────────────────── */
@@ -624,28 +643,57 @@ const ConnectedOperationsSection: React.FC = () => {
             grid-template-columns: 1fr;
             gap: 2.5rem;
           }
-          .pw-co__image { max-height: 340px; }
+
+          .pw-co__image {
+            max-height: 340px;
+          }
+
           .pw-co__grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
           }
         }
 
         @media (max-width: 680px) {
+          .pw-co .container-custom {
+            width: min(100%, calc(100% - 2rem));
+            margin-top: -24px;
+          }
+
           .pw-co__header {
             gap: 2rem;
             margin-bottom: 3rem;
           }
+
           .pw-co__image-wrap {
             max-width: 100%;
             height: 260px;
+            border-radius: 16px;
           }
+
+          .pw-co__image-wrap::after {
+            border-radius: 16px;
+          }
+
           .pw-co__grid {
             grid-template-columns: 1fr;
-            border-radius: var(--co-r-lg);
+            border-radius: 16px;
           }
-          .pw-co__card { padding: 1.65rem 1.5rem 1.45rem; }
+
+          .pw-co__card {
+            padding: 1.65rem 1.5rem 1.45rem;
+          }
+
           .pw-co__title {
-            font-size: clamp(2rem, 8.5vw, 2.6rem);
+            font-size: clamp(1.6rem, 6vw, 1.95rem);
+          }
+
+          .pw-co__lead {
+            font-size: 0.98rem;
+            line-height: 1.72;
+          }
+
+          .pw-co__divider {
+            margin-bottom: 2rem;
           }
         }
       `}</style>

@@ -185,8 +185,14 @@ const SystemsShowcase: React.FC = () => {
         .pw-ss {
           position: relative;
           overflow: hidden;
-          background: linear-gradient(160deg,#f5f7fb 0%,#f8fafc 55%,#eef2f7 100%);
           isolation: isolate;
+          background:
+            linear-gradient(
+              160deg,
+              var(--bg-primary) 0%,
+              color-mix(in srgb, var(--bg-primary) 72%, var(--bg-secondary) 28%) 55%,
+              color-mix(in srgb, var(--bg-primary) 76%, var(--bg-elevated) 24%) 100%
+            );
         }
 
         .pw-ss .container-custom {
@@ -199,16 +205,18 @@ const SystemsShowcase: React.FC = () => {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(148,163,184,0.07) 1px,transparent 1px),
-            linear-gradient(90deg,rgba(148,163,184,0.07) 1px,transparent 1px);
+            linear-gradient(color-mix(in srgb, var(--text-muted) 14%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--text-muted) 14%, transparent) 1px, transparent 1px);
           background-size: 70px 70px;
           pointer-events: none;
-          mask-image: linear-gradient(180deg,
+          mask-image: linear-gradient(
+            180deg,
             transparent 0%,
             rgba(0,0,0,0.4) 15%,
             rgba(0,0,0,0.85) 40%,
             rgba(0,0,0,0.85) 75%,
-            transparent 100%);
+            transparent 100%
+          );
           opacity: 0.6;
         }
 
@@ -229,10 +237,10 @@ const SystemsShowcase: React.FC = () => {
           gap: 0.5rem;
           padding: 5px 13px 5px 9px;
           border-radius: 8px;
-          background: rgba(200,30,30,0.055);
-          border: 1px solid rgba(200,30,30,0.18);
-          color: var(--pw-red);
-          font-family: "DM Mono", monospace;
+          background: color-mix(in srgb, var(--primary-red) 6%, transparent);
+          border: 1px solid color-mix(in srgb, var(--primary-red) 18%, transparent);
+          color: var(--primary-red);
+          font-family: var(--font-mono, "DM Mono", monospace);
           font-size: 0.64rem;
           letter-spacing: 0.16em;
           text-transform: uppercase;
@@ -244,16 +252,17 @@ const SystemsShowcase: React.FC = () => {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: var(--pw-red);
-          box-shadow: 0 0 0 3px rgba(200,30,30,0.18);
+          background: var(--primary-red);
+          box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-red) 18%, transparent);
         }
 
         .pw-ss__title {
-          font-size: 1.35rem;
+          font-size: clamp(2rem, 3vw, 2.5rem);
           font-weight: 800;
           letter-spacing: -0.048em;
           line-height: 1.1;
           margin-bottom: 0.75rem;
+          color: var(--text-primary);
           will-change: transform, opacity;
         }
 
@@ -261,6 +270,7 @@ const SystemsShowcase: React.FC = () => {
           font-size: 1.02rem;
           line-height: 1.8;
           max-width: 44rem;
+          color: var(--text-secondary);
           will-change: transform, opacity;
         }
 
@@ -284,11 +294,11 @@ const SystemsShowcase: React.FC = () => {
         }
 
         .pw-ss__label {
-          font-family: "DM Mono", monospace;
+          font-family: var(--font-mono, "DM Mono", monospace);
           font-size: 0.68rem;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: var(--pw-text-muted);
+          color: var(--text-muted);
           margin-bottom: 0.35rem;
         }
 
@@ -296,14 +306,14 @@ const SystemsShowcase: React.FC = () => {
           font-size: 1.5rem;
           letter-spacing: -0.03em;
           margin-bottom: 0.6rem;
-          color: var(--pw-text-primary);
+          color: var(--text-primary);
         }
 
         .pw-ss__desc {
           font-size: 0.97rem;
           line-height: 1.8;
           margin-bottom: 0.9rem;
-          color: var(--pw-text-secondary);
+          color: var(--text-secondary);
         }
 
         .pw-ss__features {
@@ -319,13 +329,13 @@ const SystemsShowcase: React.FC = () => {
           gap: 0.35rem;
           padding: 4px 10px;
           border-radius: 999px;
-          border: 1px solid rgba(0,0,0,0.06);
-          background: #f9fafb;
-          font-family: "DM Mono", monospace;
+          border: 1px solid color-mix(in srgb, var(--border-color) 100%, transparent);
+          background: color-mix(in srgb, var(--bg-card) 82%, var(--bg-elevated) 18%);
+          font-family: var(--font-mono, "DM Mono", monospace);
           font-size: 0.65rem;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: var(--pw-text-secondary);
+          color: var(--text-secondary);
           will-change: transform, opacity;
         }
 
@@ -333,8 +343,9 @@ const SystemsShowcase: React.FC = () => {
           width: 4px;
           height: 4px;
           border-radius: 999px;
-          background: var(--pw-red);
+          background: var(--primary-red);
         }
+
         .pw-ss__cta {
           position: relative;
           overflow: hidden;
@@ -343,27 +354,27 @@ const SystemsShowcase: React.FC = () => {
           justify-content: center;
           gap: 0.5rem;
           padding: 12px 24px;
-          border-radius: var(--pw-r-sm);
+          border-radius: var(--pw-r-sm, 8px);
           border: none;
-          background: var(--pw-red);
+          background: var(--primary-red);
           color: #fff;
           font-size: 0.85rem;
           font-weight: 600;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          box-shadow: var(--pw-shadow-red);
+          box-shadow: var(--pw-shadow-red, 0 14px 26px rgba(196,30,36,0.2));
           cursor: pointer;
           transition:
-            background var(--pw-t-fast),
-            box-shadow var(--pw-t-fast),
-            transform var(--pw-t-fast);
+            background 220ms ease,
+            box-shadow 220ms ease,
+            transform 220ms ease;
           will-change: transform, opacity;
           white-space: nowrap;
           flex-shrink: 0;
         }
 
         .pw-ss__cta:hover {
-          background: var(--pw-red-hover);
+          background: var(--primary-red-hover);
           transform: translateY(-2px);
         }
 
@@ -445,6 +456,7 @@ const SystemsShowcase: React.FC = () => {
 
           .pw-ss__text {
             margin-left: 0;
+            max-width: 100%;
           }
         }
 
@@ -453,16 +465,26 @@ const SystemsShowcase: React.FC = () => {
             width: calc(100% - 2rem);
           }
 
+          .pw-ss__header {
+            margin-bottom: 2.8rem;
+          }
+
           .pw-ss__rows {
             gap: 3rem;
           }
 
           .pw-ss__title {
-            font-size: clamp(2rem, 7vw, 2.4rem);
+            font-size: clamp(1.65rem, 6.2vw, 1.95rem);
           }
 
           .pw-ss__system-title {
             font-size: 1.35rem;
+          }
+
+          .pw-ss__lead,
+          .pw-ss__desc {
+            font-size: 0.96rem;
+            line-height: 1.75;
           }
 
           .pw-ss__visual-inner {
@@ -470,7 +492,6 @@ const SystemsShowcase: React.FC = () => {
           }
         }
       `}</style>
-
       <section
         id="systems-showcase"
         ref={sectionRef}
