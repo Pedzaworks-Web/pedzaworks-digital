@@ -260,7 +260,7 @@ const Footer: React.FC = () => {
         {/* Bottom strip */}
         <div className="pw-footer__bottom">
           <p className="pw-footer__copyright">
-            © {year} Pedzaworks Digital Solutions. All rights reserved.
+            © {year} Pedzaworks Digital Solutions.
           </p>
           <div className="pw-footer__legal-links">
             <a href="#privacy" className="pw-footer__legal-link">
