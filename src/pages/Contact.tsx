@@ -358,40 +358,40 @@ export default function Contact() {
       </section>
 
       <style>{`
-        .pw-contact {
-          --pw-red: #c81e1e;
-          --pw-red-strong: #b91c1c;
-          --pw-red-soft: rgba(200, 30, 30, 0.08);
-          --pw-red-border: rgba(200, 30, 30, 0.18);
+        .pw-about {
+          --co-red: var(--pw-red);
+          --co-red-hover: var(--pw-red-hover);
+          --co-red-border: rgba(200, 30, 30, 0.18);
 
-          --pw-bg: #edf1f7;
-          --pw-surface: rgba(255, 255, 255, 0.9);
-          --pw-surface-strong: rgba(255, 255, 255, 0.97);
-          --pw-surface-soft: rgba(247, 249, 252, 0.88);
+          --co-surface: var(--pw-bg-surface);
+          --co-bg: var(--pw-bg-base);
+          --co-bg-elevated: var(--pw-bg-elevated);
+          --co-card: var(--pw-bg-card);
 
-          --pw-text-1: #0c1220;
-          --pw-text-2: #415168;
-          --pw-text-3: #8191a8;
+          --co-border: var(--pw-border);
+          --co-border-md: rgba(0, 0, 0, 0.1);
+          --co-border-light: var(--pw-border-light);
 
-          --pw-border: rgba(15, 23, 42, 0.08);
-          --pw-border-strong: rgba(15, 23, 42, 0.12);
+          --co-text-1: var(--pw-text-primary);
+          --co-text-2: var(--pw-text-secondary);
+          --co-text-3: var(--pw-text-muted);
 
-          --pw-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-          --pw-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.08);
-          --pw-shadow-lg: 0 26px 68px rgba(15, 23, 42, 0.11);
+          --co-mono: "DM Mono", monospace;
 
-          --pw-radius-sm: 10px;
-          --pw-radius-md: 16px;
-          --pw-radius-lg: 24px;
-          --pw-radius-xl: 30px;
+          --co-r-sm: var(--pw-r-sm);
+          --co-r-md: var(--pw-r-md);
+          --co-r-lg: var(--pw-r-lg);
+          --co-r-xl: var(--pw-r-xl);
 
-          --pw-mono: "DM Mono", "Fira Mono", monospace;
+          --co-shadow-sm: var(--pw-shadow-sm);
+          --co-shadow-md: var(--pw-shadow-md);
+          --co-shadow-lg: var(--pw-shadow-lg);
+          --co-shadow-red: var(--pw-shadow-red);
 
           position: relative;
+          background: linear-gradient(160deg, #edf1f7 0%, #f3f6fa 55%, #eef1f6 100%);
           isolation: isolate;
-          overflow: clip;
-          background:
-            linear-gradient(180deg, #edf1f7 0%, #f3f6fb 34%, #eef2f7 100%);
+          overflow-x: hidden;
         }
 
         .pw-contact__bg-grid,

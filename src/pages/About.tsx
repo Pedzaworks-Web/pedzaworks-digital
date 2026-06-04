@@ -90,28 +90,46 @@ const About: React.FC = () => {
   return (
     <>
       <style>{`
-        /* ── Core tokens — shared with ConnectedOperations ── */
         .pw-about {
-          --co-red:        #c81e1e;
-          --co-red-hover:  #e03131;
-          --co-red-border: rgba(200,30,30,0.18);
-          --co-surface:    #ffffff;
-          --co-bg:         #f3f6fa;
-          --co-border:     rgba(15,23,42,0.07);
-          --co-border-md:  rgba(15,23,42,0.10);
-          --co-text-1:     #0c1220;
-          --co-text-2:     #3d4f6b;
-          --co-text-3:     #7a8ba3;
-          --co-mono:       "DM Mono", "Fira Mono", monospace;
-          --co-r-sm:       8px;
-          --co-r-md:       12px;
-          --co-r-lg:       16px;
-          --co-r-xl:       20px;
+          --co-red: var(--pw-red);
+          --co-red-hover: var(--pw-red-hover);
+          --co-red-border: rgba(200, 30, 30, 0.18);
+
+          --co-surface: var(--pw-bg-surface);
+          --co-bg: var(--pw-bg-base);
+          --co-bg-elevated: var(--pw-bg-elevated);
+          --co-card: var(--pw-bg-card);
+
+          --co-border: var(--pw-border);
+          --co-border-md: rgba(0, 0, 0, 0.1);
+          --co-border-light: var(--pw-border-light);
+
+          --co-text-1: var(--pw-text-primary);
+          --co-text-2: var(--pw-text-secondary);
+          --co-text-3: var(--pw-text-muted);
+
+          --co-mono: "DM Mono", monospace;
+
+          --co-r-sm: var(--pw-r-sm);
+          --co-r-md: var(--pw-r-md);
+          --co-r-lg: var(--pw-r-lg);
+          --co-r-xl: var(--pw-r-xl);
+
+          --co-shadow-sm: var(--pw-shadow-sm);
+          --co-shadow-md: var(--pw-shadow-md);
+          --co-shadow-lg: var(--pw-shadow-lg);
+          --co-shadow-red: var(--pw-shadow-red);
 
           position: relative;
           background: linear-gradient(160deg, #edf1f7 0%, #f3f6fa 55%, #eef1f6 100%);
           isolation: isolate;
           overflow-x: hidden;
+        }
+
+        .pw-about .container-custom {
+          max-width: 1280px;
+          width: min(1280px, calc(100% - 3rem));
+          margin-inline: auto;
         }
 
         .pw-about__bg-grid {
@@ -122,7 +140,8 @@ const About: React.FC = () => {
             linear-gradient(90deg, rgba(100,116,139,0.065) 1px, transparent 1px);
           background-size: 64px 64px;
           pointer-events: none;
-          mask-image: linear-gradient(180deg,
+          mask-image: linear-gradient(
+            180deg,
             transparent 0%,
             rgba(0,0,0,0.45) 12%,
             rgba(0,0,0,0.9) 32%,
@@ -136,7 +155,7 @@ const About: React.FC = () => {
           position: fixed;
           inset: 0;
           background:
-            radial-gradient(ellipse 65% 45% at 8% 108%,  rgba(200,30,30,0.07)  0%, transparent 70%),
+            radial-gradient(ellipse 65% 45% at 8% 108%, rgba(200,30,30,0.07) 0%, transparent 70%),
             radial-gradient(ellipse 55% 48% at 96% -5%, rgba(200,30,30,0.055) 0%, transparent 68%),
             radial-gradient(ellipse 40% 30% at 60% 105%, rgba(100,116,139,0.06) 0%, transparent 65%);
           pointer-events: none;
@@ -164,19 +183,11 @@ const About: React.FC = () => {
           );
         }
 
-        .pw-about .container-custom {
-          max-width: 1280px;
-          width: min(1280px, calc(100% - 3rem));
-          margin-inline: auto;
-        }
-
-        /* ── Section shell (hero + sections + CTA) ─────────── */
         .pw-section {
           padding: clamp(5rem, 8vw, 7rem) 0;
         }
 
         .pw-section--hero {
-    
           padding-top: 230px;
           padding-bottom: 80px;
         }
@@ -187,7 +198,6 @@ const About: React.FC = () => {
           border-bottom: 1px solid var(--co-border-md);
         }
 
-        /* ── Eyebrow / kicker — used everywhere ────────────── */
         .pw-eyebrow {
           display: inline-flex;
           align-items: center;
@@ -222,7 +232,6 @@ const About: React.FC = () => {
           50% { transform: scale(1.35); }
         }
 
-        /* ── Heading & lead hierarchy — shared ─────────────── */
         .pw-heading {
           margin: 0 0 1.15rem;
           font-size: 40px;
@@ -256,7 +265,6 @@ const About: React.FC = () => {
           max-width: 44rem;
         }
 
-        /* ── Divider — reused everywhere ───────────────────── */
         .pw-divider {
           display: flex;
           align-items: center;
@@ -285,7 +293,6 @@ const About: React.FC = () => {
           white-space: nowrap;
         }
 
-        /* ── Grid helpers ───────────────────────────────────── */
         .pw-grid-hero {
           display: grid;
           grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
@@ -314,7 +321,6 @@ const About: React.FC = () => {
           align-items: center;
         }
 
-        /* ── Topology visual (still used elsewhere if needed) ─ */
         .pw-topology {
           position: relative;
           min-height: 520px;
@@ -436,7 +442,6 @@ const About: React.FC = () => {
           color: var(--co-text-1);
         }
 
-        /* ── Editorial text ─────────────────────────────────── */
         .pw-body-large {
           margin: 0 0 1rem;
           color: var(--co-text-2);
@@ -456,7 +461,6 @@ const About: React.FC = () => {
           letter-spacing: -0.03em;
         }
 
-        /* ── Card system (principles + impact) ─────────────── */
         .pw-card-grid {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -489,7 +493,8 @@ const About: React.FC = () => {
           content: "";
           position: absolute;
           inset: 0;
-          background: radial-gradient(120px circle at 100% 100%,
+          background: radial-gradient(
+            120px circle at 100% 100%,
             rgba(200,30,30,0.075) 0%,
             transparent 70%
           );
@@ -554,7 +559,7 @@ const About: React.FC = () => {
 
         @keyframes pwCardShimmer {
           from { transform: translateX(-115%); }
-          to   { transform: translateX(115%); }
+          to { transform: translateX(115%); }
         }
 
         .pw-card-top {
@@ -651,7 +656,6 @@ const About: React.FC = () => {
           color: var(--co-red);
         }
 
-        /* Impact-specific tweaks (index label) */
         .pw-impact-index {
           font-family: var(--co-mono);
           font-size: 0.64rem;
@@ -677,7 +681,6 @@ const About: React.FC = () => {
           );
         }
 
-        /* ── Vision panel & chips ───────────────────────────── */
         .pw-vision-panel {
           padding: clamp(1.6rem, 2vw, 2rem);
           border: 1px solid var(--co-border-md);
@@ -712,7 +715,6 @@ const About: React.FC = () => {
           color: var(--co-red);
         }
 
-        /* ── Founder card ───────────────────────────────────── */
         .pw-founder-card {
           padding: clamp(1.3rem, 2vw, 1.8rem);
           border-radius: 26px;
@@ -764,7 +766,6 @@ const About: React.FC = () => {
           color: var(--co-text-3);
         }
 
-        /* ── CTA actions ────────────────────────────────────── */
         .pw-cta-inner {
           display: grid;
           grid-template-columns: minmax(0, 1fr) auto;
@@ -878,7 +879,6 @@ const About: React.FC = () => {
           color: var(--co-red);
         }
 
-        /* ── Scroll reveal: opacity only (no layout shift) ─── */
         [data-reveal] {
           opacity: 0;
           transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -895,7 +895,6 @@ const About: React.FC = () => {
           }
         }
 
-        /* ── Image shells (hero, vision, founder) ──────────── */
         .pw-image-shell {
           position: relative;
           border-radius: 28px;
@@ -927,7 +926,6 @@ const About: React.FC = () => {
           content: none;
         }
 
-        /* ── Responsive ─────────────────────────────────────── */
         @media (max-width: 1100px) {
           .pw-grid-hero,
           .pw-grid-editorial,
@@ -943,10 +941,6 @@ const About: React.FC = () => {
 
           .pw-topology {
             min-height: 430px;
-          }
-
-          .pw-about .container-custom {
-            width: calc(100% - 2.5rem);
           }
         }
 
@@ -1005,7 +999,10 @@ const About: React.FC = () => {
         }
 
         @media (max-width: 720px) {
-          
+          .pw-about .container-custom {
+            width: calc(100% - 2rem);
+          }
+
           .pw-card-grid,
           .pw-card-grid--impact {
             grid-template-columns: 1fr;
@@ -1037,10 +1034,6 @@ const About: React.FC = () => {
           .pw-cta-primary,
           .pw-btn-ghost {
             width: 100%;
-          }
-
-          .pw-about .container-custom {
-            width: calc(100% - 2rem);
           }
 
           .pw-grid-editorial {
@@ -1079,9 +1072,6 @@ const About: React.FC = () => {
             min-height: 0;
           }
         }
-
-       
-        }
       `}</style>
 
       <div className="pw-about" ref={rootRef}>
@@ -1089,7 +1079,6 @@ const About: React.FC = () => {
         <div className="pw-about__bg-fade" aria-hidden="true" />
         <div className="pw-top-rule" aria-hidden="true" />
 
-        {/* HERO */}
         <section className="pw-section pw-section--hero">
           <div className="container-custom">
             <div className="pw-grid-hero">
@@ -1111,7 +1100,6 @@ const About: React.FC = () => {
               </div>
 
               <div data-reveal aria-hidden="true">
-                {/* transparent hero image instead of topology + system architecture card */}
                 <div className="pw-image-shell pw-image-shell--hero">
                   <img
                     src={aboutHeroImage}
@@ -1123,7 +1111,6 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        {/* WHY WE EXIST */}
         <section className="pw-section pw-section--soft">
           <div className="container-custom">
             <div className="pw-grid-editorial" data-reveal>
@@ -1158,7 +1145,6 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        {/* HOW WE THINK */}
         <section className="pw-section">
           <div className="container-custom">
             <div className="pw-section-title" data-reveal>
@@ -1220,7 +1206,6 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        {/* OUR IMPACT */}
         <section className="pw-section pw-section--soft">
           <div className="container-custom">
             <div className="pw-section-title" data-reveal>
@@ -1275,7 +1260,6 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        {/* VISION (with image) */}
         <section className="pw-section">
           <div className="container-custom">
             <div className="pw-vision-panel pw-grid-vision" data-reveal>
@@ -1307,7 +1291,6 @@ const About: React.FC = () => {
                 </p>
               </div>
 
-              {/* transparent vision image */}
               <div aria-hidden="true">
                 <div className="pw-image-shell pw-image-shell--vision">
                   <img
@@ -1320,11 +1303,9 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        {/* FOUNDER (with image) */}
         <section className="pw-section pw-section--soft">
           <div className="container-custom">
             <div className="pw-grid-founder" data-reveal>
-              {/* transparent founder image + heading */}
               <div aria-hidden="true">
                 <p className="pw-eyebrow">
                   <span className="pw-eyebrow-dot" />
