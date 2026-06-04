@@ -198,7 +198,7 @@ const Hero: React.FC = () => {
           color: var(--pw-text-primary);
           line-height: 1.06;
           letter-spacing: -0.04em;
-          margin-bottom: 20px;
+          margin-bottom: 21px;
         }
 
         .pw-hero__headline-accent {
