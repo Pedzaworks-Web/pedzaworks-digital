@@ -443,7 +443,7 @@ const Hero: React.FC = () => {
           }
 
           .pw-hero__badge {
-            margin-top: 20px;
+            margin-top: 30px;
           }
 
           .pw-hero__headline {
