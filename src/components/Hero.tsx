@@ -475,7 +475,7 @@ const Hero: React.FC = () => {
           }
 
           .pw-hero__stats {
-            margin-top: 32px;
+            margin-top: 30px;
             gap: 18px;
             transform: translateX(0);
             justify-content: center;
