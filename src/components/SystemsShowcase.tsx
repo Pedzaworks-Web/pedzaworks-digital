@@ -497,7 +497,7 @@ const SystemsShowcase: React.FC = () => {
         ref={sectionRef}
         className="pw-ss section-padding"
         aria-labelledby="systems-showcase-heading"
-        style={{ scrollMarginTop: "-80px" }}
+        style={{ scrollMarginTop: "-30px" }}
       >
         <div className="pw-ss__bg-grid" aria-hidden="true" />
         <div className="container-custom pw-ss__inner">
