@@ -443,14 +443,14 @@ const Hero: React.FC = () => {
           }
 
           .pw-hero__badge {
-            margin-top: -30px;
+            margin-top: -10px;
           }
 
           .pw-hero__headline {
             font-size: clamp(2.1rem, 6vw, 2.7rem);
             margin-bottom: 24px;
             max-width: 12ch;
-            margin-top: 30px;
+            margin-top: 50px;
           }
 
           .pw-hero__subline {
@@ -475,7 +475,7 @@ const Hero: React.FC = () => {
           }
 
           .pw-hero__stats {
-            margin-top: 30px;
+            margin-top: 40px;
             gap: 18px;
             transform: translateX(0);
             justify-content: center;
@@ -518,7 +518,7 @@ const Hero: React.FC = () => {
 
           .pw-hero__subline {
             font-size: 0.9375rem;
-            margin-bottom: 28px;
+            margin-bottom: 38px;
             line-height: 1.65;
           }
 
