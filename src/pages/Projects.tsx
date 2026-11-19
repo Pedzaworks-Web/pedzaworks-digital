@@ -485,7 +485,7 @@ export default function Projects() {
           </div>
           <div
             className="pw-proj__card-grid pw-proj__card-grid--4col"
-            ref={reveal as any}
+            ref={reveal}
             data-reveal
           >
             {stats.map((stat, i) => (

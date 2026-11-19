@@ -1,6 +1,7 @@
 // src/components/RequestDemoModal.tsx
 import { useEffect, useId, useRef, useState } from "react";
 import { ArrowRight, CalendarDays, Clock3, Mail, X } from "lucide-react";
+import { openEnquiryEmail } from "../lib/enquiry";
 
 type RequestDemoModalProps = {
   open: boolean;
@@ -97,7 +98,11 @@ export default function RequestDemoModal({
     if (onSubmit) {
       onSubmit(payload);
     } else {
-      console.log("Request demo payload:", payload);
+      openEnquiryEmail("Demo Request", {
+        Email: payload.email,
+        "Preferred Date": payload.preferredDate,
+        "Preferred Time": payload.preferredTime,
+      });
     }
 
     onClose();

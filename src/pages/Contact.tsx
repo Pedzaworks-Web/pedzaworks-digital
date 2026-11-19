@@ -1,5 +1,5 @@
 // src/pages/Contact.tsx
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   CalendarClock,
@@ -7,8 +7,10 @@ import {
   ChevronDown,
 } from "lucide-react";
 import SEO from "../components/SEO";
+import { ENQUIRY_EMAIL, openEnquiryEmail } from "../lib/enquiry";
 export default function Contact() {
   const revealRefs = useRef<HTMLElement[]>([]);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -122,11 +124,24 @@ export default function Contact() {
 
             <div className="pw-contact__form-grid">
               <form
-                ref={reveal as any}
+                ref={reveal}
                 data-reveal
                 className="pw-contact__form"
                 onSubmit={(e) => {
                   e.preventDefault();
+                  const data = new FormData(e.currentTarget);
+                  const get = (k: string) => String(data.get(k) ?? "");
+                  openEnquiryEmail(
+                    `Project Inquiry — ${get("organization") || get("name")}`,
+                    {
+                      Name: get("name"),
+                      Organization: get("organization"),
+                      Email: get("email"),
+                      "Project Type": get("projectType"),
+                      Message: get("message"),
+                    },
+                  );
+                  setSubmitted(true);
                 }}
               >
                 <div className="pw-contact__form-shell">
@@ -233,13 +248,23 @@ export default function Contact() {
                       </span>
                     </button>
 
-                    <div className="pw-contact__form-note">
+                    <div className="pw-contact__form-note" aria-live="polite">
                       <CalendarClock size={16} strokeWidth={1.7} />
-                      <p>
-                        We typically respond to new inquiries within 1–2
-                        business days with next steps and a suggested
-                        conversation time.
-                      </p>
+                      {submitted ? (
+                        <p>
+                          Your email app should now open with your inquiry
+                          ready to send. If it didn&apos;t, email us directly
+                          at{" "}
+                          <a href={`mailto:${ENQUIRY_EMAIL}`}>{ENQUIRY_EMAIL}</a>
+                          .
+                        </p>
+                      ) : (
+                        <p>
+                          We typically respond to new inquiries within 1–2
+                          business days with next steps and a suggested
+                          conversation time.
+                        </p>
+                      )}
                     </div>
                   </footer>
                 </div>

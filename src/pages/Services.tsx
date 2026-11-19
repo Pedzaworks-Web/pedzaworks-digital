@@ -301,7 +301,7 @@ export default function Services() {
 
             <div
               className="pw-card-grid pw-card-grid--3col"
-              ref={reveal as any}
+              ref={reveal}
               data-reveal
             >
               {services.map((s) => (
@@ -414,7 +414,7 @@ export default function Services() {
 
             <div
               className="pw-card-grid pw-card-grid--3col"
-              ref={reveal as any}
+              ref={reveal}
               data-reveal
             >
               {industries.map((ind, i) => (
@@ -458,7 +458,7 @@ export default function Services() {
 
             <div
               className="pw-card-grid pw-card-grid--impact"
-              ref={reveal as any}
+              ref={reveal}
               data-reveal
             >
               {impact.map((item, i) => (

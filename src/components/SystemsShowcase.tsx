@@ -589,9 +589,6 @@ const SystemsShowcase: React.FC = () => {
       <RequestDemoModal
         open={isDemoModalOpen}
         onClose={() => setIsDemoModalOpen(false)}
-        onSubmit={(data) => {
-          console.log("Demo request submitted:", data);
-        }}
       />
     </>
   );

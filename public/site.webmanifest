@@ -1,6 +1,8 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Pedzaworks Digital Solutions",
+  "short_name": "Pedzaworks",
+  "description": "Operational software, workflow automation, and connected infrastructure.",
+  "start_url": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +17,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#c81e1e",
   "background_color": "#ffffff",
   "display": "standalone"
 }

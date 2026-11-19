@@ -67,8 +67,8 @@ const CONTACT: ContactItem[] = [
       </svg>
     ),
     label: "Phone",
-    href: "tel:+263771926517",
-    value: "+263 77 192 6517",
+    href: "tel:+263718719892",
+    value: "+263 71 871 9892",
   },
   {
     icon: (
@@ -260,14 +260,14 @@ const Footer: React.FC = () => {
         {/* Bottom strip */}
         <div className="pw-footer__bottom">
           <p className="pw-footer__copyright">
-            © {year} Pedzaworks Digital Solutions.
+            © {year} Pedzaworks Digital Solutions Private Limited. All rights reserved.
           </p>
           <div className="pw-footer__legal-links">
-            <a href="#privacy" className="pw-footer__legal-link">
+            <a href="/privacy" className="pw-footer__legal-link">
               Privacy Policy
             </a>
             <span aria-hidden="true">·</span>
-            <a href="#terms" className="pw-footer__legal-link">
+            <a href="/terms" className="pw-footer__legal-link">
               Terms of Service
             </a>
           </div>
