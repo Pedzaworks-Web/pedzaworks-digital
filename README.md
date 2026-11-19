@@ -49,15 +49,16 @@ vercel.json             SPA rewrite so all routes serve index.html
 
 ## Routes
 
-| Path          | Page                                 |
-| ------------- | ------------------------------------ |
-| `/`           | Home                                 |
-| `/about`      | About                                |
-| `/services`   | Services                             |
-| `/industries` | Industries                           |
-| `/contact`    | Contact and project inquiry form     |
-| `/privacy`    | Privacy Policy                       |
-| `/terms`      | Terms of Service                     |
+| Path                | Page                             |
+| ------------------- | -------------------------------- |
+| `/`                 | Home                             |
+| `/about`            | About                            |
+| `/services`         | Services                         |
+| `/industries`       | Industries                       |
+| `/contact`          | Contact and project inquiry form |
+| `/privacy-policy`   | Privacy Policy                   |
+| `/terms-of-service` | Terms of Service                 |
+| any other path      | 404 Not Found                    |
 
 To add a page, create it in `src/pages/`, register it in `src/App.tsx`, add an `<SEO />` block with its title, description, and canonical URL, and add the URL to `public/sitemap.xml`.
 

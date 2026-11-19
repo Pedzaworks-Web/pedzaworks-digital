@@ -112,7 +112,7 @@ const LegalPage: React.FC<LegalPageProps> = ({
       .pw-legal__container {
         max-width: 1100px;
         margin: 0 auto;
-        padding: 0 var(--pw-container-gutter);
+        padding: 0 max(16px, var(--pw-container-gutter));
       }
 
       .pw-legal__header {
@@ -271,7 +271,8 @@ const LegalPage: React.FC<LegalPageProps> = ({
         font-weight: 600;
       }
 
-      .pw-legal a {
+      .pw-legal__body a,
+      .pw-legal__intro a {
         color: var(--pw-red);
       }
 

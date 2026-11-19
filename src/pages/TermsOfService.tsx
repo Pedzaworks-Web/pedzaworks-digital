@@ -79,7 +79,7 @@ const sections: LegalSection[] = [
         <p>
           Information you submit through our contact or demo request forms is
           used to respond to you and is handled in line with our{" "}
-          <Link to="/privacy">Privacy Policy</Link>.
+          <Link to="/privacy-policy">Privacy Policy</Link>.
         </p>
         <p>
           Submitting an enquiry does not create a contract or obligate either
@@ -212,7 +212,7 @@ export default function TermsOfService() {
       lastUpdated="2026-11-19"
       seoTitle="Terms of Service"
       seoDescription="The terms that govern use of the Pedzaworks Digital Solutions website and enquiries about our software and connected infrastructure services."
-      url="https://www.pedzaworks.com/terms"
+      url="https://www.pedzaworks.com/terms-of-service"
       intro={
         <p>
           Please read these Terms carefully. They set out the rules for using
@@ -221,7 +221,7 @@ export default function TermsOfService() {
         </p>
       }
       sections={sections}
-      related={{ label: "Privacy Policy", to: "/privacy" }}
+      related={{ label: "Privacy Policy", to: "/privacy-policy" }}
     />
   );
 }

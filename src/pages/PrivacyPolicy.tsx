@@ -258,7 +258,7 @@ export default function PrivacyPolicy() {
       lastUpdated="2026-11-19"
       seoTitle="Privacy Policy"
       seoDescription="How Pedzaworks Digital Solutions collects, uses, and protects personal information submitted through our website and enquiries."
-      url="https://www.pedzaworks.com/privacy"
+      url="https://www.pedzaworks.com/privacy-policy"
       intro={
         <p>
           Your privacy matters to us. This policy describes how we handle the
@@ -267,7 +267,7 @@ export default function PrivacyPolicy() {
         </p>
       }
       sections={sections}
-      related={{ label: "Terms of Service", to: "/terms" }}
+      related={{ label: "Terms of Service", to: "/terms-of-service" }}
     />
   );
 }

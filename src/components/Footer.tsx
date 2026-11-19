@@ -263,11 +263,11 @@ const Footer: React.FC = () => {
             © {year} Pedzaworks Digital Solutions Private Limited. All rights reserved.
           </p>
           <div className="pw-footer__legal-links">
-            <a href="/privacy" className="pw-footer__legal-link">
+            <a href="/privacy-policy" className="pw-footer__legal-link">
               Privacy Policy
             </a>
             <span aria-hidden="true">·</span>
-            <a href="/terms" className="pw-footer__legal-link">
+            <a href="/terms-of-service" className="pw-footer__legal-link">
               Terms of Service
             </a>
           </div>
