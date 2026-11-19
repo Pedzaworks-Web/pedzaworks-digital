@@ -10,37 +10,35 @@ import FinalCallToActionSection from "../components/FinalCallToActionSection";
 const Home: React.FC = () => (
   <>
     <SEO
-      title="Operational Software Systems & Digital Infrastructure"
-      description="Pedzaworks Digital Solutions builds operational software systems, workflow platforms, automation tools, and connected digital infrastructure for modern organizations."
+      title="Pedzaworks Digital Solutions | Custom Software & Automation, Zimbabwe"
+      description="Pedzaworks builds custom software, workflow automation, business platforms, websites, and IoT systems for organisations in Zimbabwe and across Africa."
       url="https://www.pedzaworks.com/"
       keywords={[
-        "operational software systems",
+        "custom software development Zimbabwe",
+        "software company Harare",
         "workflow automation",
-        "digital infrastructure",
-        "custom software development",
-        "IoT integration",
+        "business software",
+        "web development Zimbabwe",
+        "IoT solutions",
       ]}
-      twitterSite="@pedzaworks"
-      twitterCreator="@pedzaworks"
       schema={{
         "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "Pedzaworks Digital Solutions",
+        "@type": "WebPage",
+        "@id": "https://www.pedzaworks.com/#webpage",
         url: "https://www.pedzaworks.com/",
-        logo: "https://www.pedzaworks.com/og-image.jpg",
-        description:
-          "Pedzaworks builds operational software systems, workflow platforms, and connected digital infrastructure.",
+        name: "Pedzaworks Digital Solutions | Custom Software & Automation, Zimbabwe",
+        isPartOf: { "@id": "https://www.pedzaworks.com/#website" },
+        about: { "@id": "https://www.pedzaworks.com/#organization" },
+        primaryImageOfPage: "https://www.pedzaworks.com/og-image.jpg",
       }}
     />
 
-    <main>
-      <Hero />
-      <ConnectedOperationsSection />
-      <SystemsShowcase />
-      <TechStackCarousel />
-      <WhyPedzaworksSection />
-      <FinalCallToActionSection />
-    </main>
+    <Hero />
+    <ConnectedOperationsSection />
+    <SystemsShowcase />
+    <TechStackCarousel />
+    <WhyPedzaworksSection />
+    <FinalCallToActionSection />
   </>
 );
 

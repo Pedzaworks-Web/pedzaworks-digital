@@ -179,8 +179,8 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Services"
-        description="Explore Pedzaworks Digital Solutions services including operational software systems, workflow automation, platform engineering, systems integration, connected infrastructure, and digital platforms."
+        title="Custom Software, Workflow Automation & IoT Services"
+        description="Custom software development, workflow automation, systems integration, business websites, and IoT services from Pedzaworks in Harare, Zimbabwe."
         url="https://www.pedzaworks.com/services"
         keywords={[
           "operational software systems",
@@ -197,7 +197,7 @@ export default function Services() {
           name: "Services | Pedzaworks Digital Solutions",
           url: "https://www.pedzaworks.com/services",
           description:
-            "Explore Pedzaworks Digital Solutions services including operational software systems, workflow automation, platform engineering, systems integration, connected infrastructure, and digital platforms.",
+            "Custom software development, workflow automation, systems integration, business websites, and IoT services from Pedzaworks in Harare, Zimbabwe.",
         }}
       />
       <div className="pw-services">

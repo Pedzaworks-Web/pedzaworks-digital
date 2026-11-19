@@ -90,8 +90,8 @@ const About: React.FC = () => {
   return (
     <>
       <SEO
-        title="About"
-        description="Learn about Pedzaworks Digital Solutions, our systems-thinking approach, and our vision for building operational software systems and connected digital infrastructure."
+        title="About Us: Software Engineering Company in Harare"
+        description="Meet Pedzaworks, a Harare-based software engineering company that designs operational software, workflow platforms, and connected infrastructure."
         url="https://www.pedzaworks.com/about"
         keywords={[
           "about pedzaworks",
@@ -106,7 +106,7 @@ const About: React.FC = () => {
           name: "About Pedzaworks Digital Solutions",
           url: "https://www.pedzaworks.com/about",
           description:
-            "Learn about Pedzaworks Digital Solutions, our systems-thinking approach, and our vision for building operational software systems and connected digital infrastructure.",
+            "Meet Pedzaworks, a Harare-based software engineering company that designs operational software, workflow platforms, and connected infrastructure.",
         }}
       />
       <style>{`
@@ -1107,10 +1107,10 @@ const About: React.FC = () => {
                   <span className="pw-eyebrow-dot pw-eyebrow-dot--pulse" />
                   ABOUT PEDZAWORKS
                 </p>
-                <h2 className="pw-heading">
+                <h1 className="pw-heading">
                   Engineering Systems <br /> That Power{" "}
                   <mark> Better Operations</mark>
-                </h2>
+                </h1>
                 <p className="pw-lead">
                   Pedzaworks Digital Solutions builds operational software
                   systems, workflow platforms, and connected digital

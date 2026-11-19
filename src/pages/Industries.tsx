@@ -179,8 +179,8 @@ export default function Industries() {
   return (
     <>
       <SEO
-        title="Industries"
-        description="Explore how Pedzaworks Digital Solutions builds operational software systems, workflow platforms, and connected infrastructure for education, service businesses, logistics, SMEs, and community organizations."
+        title="Software for Education, Logistics, SMEs & Services"
+        description="How Pedzaworks builds software and automation for schools, logistics and transport, service businesses, SMEs, and community organisations in Zimbabwe."
         url="https://www.pedzaworks.com/industries"
         keywords={[
           "industries served",

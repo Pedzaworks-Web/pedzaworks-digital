@@ -1,4 +1,5 @@
 // src/pages/NotFound.tsx
+import { useSyncExternalStore } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import SEO from "../components/SEO";
@@ -10,15 +11,25 @@ const SUGGESTIONS = [
   { label: "Contact", to: "/contact", text: "Start a project" },
 ];
 
+const noopSubscribe = () => () => {};
+
 export default function NotFound() {
   const { pathname } = useLocation();
+  // The 404 page is prerendered once, so only show the requested path after
+  // hydration to keep server and client markup identical.
+  const hydrated = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
+  const shownPath = hydrated ? pathname : null;
 
   return (
     <>
       <SEO
         title="Page Not Found"
         description="The page you are looking for doesn't exist or has moved."
-        url={`https://www.pedzaworks.com${pathname}`}
+        url="https://www.pedzaworks.com/404"
         robots="noindex, nofollow"
       />
 
@@ -35,8 +46,14 @@ export default function NotFound() {
             This route isn&apos;t <mark>connected.</mark>
           </h1>
           <p className="pw-404__lead">
-            The page <code>{pathname}</code> doesn&apos;t exist or may have
-            moved. Try one of the links below or head back home.
+            {shownPath ? (
+              <>
+                The page <code>{shownPath}</code> doesn&apos;t exist or may
+                have moved.
+              </>
+            ) : (
+              <>This page doesn&apos;t exist or may have moved.</>
+            )} Try one of the links below or head back home.
           </p>
 
           <div className="pw-404__actions">

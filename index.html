@@ -11,105 +11,89 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Per-page title, description, keywords, robots and canonical are set
-         by src/components/SEO.tsx. Don't duplicate them here: a static
-         canonical would point every page at the homepage. -->
     <meta name="theme-color" content="#c81e1e" />
 
-    <!-- Site-wide social preview fallbacks for crawlers that don't run JS -->
-    <meta property="og:type" content="website" />
+    <!-- Per-page title, description, canonical, Open Graph and Twitter tags
+         come from src/components/SEO.tsx and are injected here at build time
+         by scripts/prerender.mjs. Don't add page-specific tags to this file. -->
+    <!--app-head-->
 
-    <meta
-      property="og:title"
-      content="Pedzaworks Digital Solutions | Operational Software & Workflow Automation"
-    />
-
-    <meta
-      property="og:description"
-      content="Custom software development, workflow automation, business systems, websites, and IoT solutions designed to improve operations, efficiency, and growth."
-    />
-
-    <meta
-      property="og:image"
-      content="https://www.pedzaworks.com/og-image.jpg"
-    />
-
-    <meta
-      property="og:site_name"
-      content="Pedzaworks Digital Solutions"
-    />
-
-    <meta
-      property="og:locale"
-      content="en_US"
-    />
-
-    <!-- Twitter -->
-    <meta
-      name="twitter:card"
-      content="summary_large_image"
-    />
-
-    <meta
-      name="twitter:site"
-      content="@Pedzaworks"
-    />
-
-    <meta
-      name="twitter:title"
-      content="Pedzaworks Digital Solutions | Operational Software & Workflow Automation"
-    />
-
-    <meta
-      name="twitter:description"
-      content="Custom software development, workflow automation, business systems, websites, and IoT solutions designed to improve operations, efficiency, and growth."
-    />
-
-    <meta
-      name="twitter:image"
-      content="https://www.pedzaworks.com/og-image.jpg"
-    />
-
-    <!-- Website Schema (Helps Google determine your site name) -->
+    <!-- Site-wide structured data: website + organization -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://www.pedzaworks.com/",
-        "name": "Pedzaworks Digital Solutions",
-        "alternateName": "Pedzaworks"
-      }
-    </script>
-
-    <!-- Organization Schema -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Pedzaworks Digital Solutions",
-        "legalName": "Pedzaworks Digital Solutions Private Limited",
-        "url": "https://www.pedzaworks.com/",
-        "logo": "https://www.pedzaworks.com/logo.png",
-        "image": "https://www.pedzaworks.com/logo.png",
-        "email": "admin@pedzaworks.com",
-        "telephone": "+263718719892",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Harare",
-          "addressCountry": "ZW"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+263718719892",
-          "email": "admin@pedzaworks.com",
-          "contactType": "customer service",
-          "areaServed": "ZW",
-          "availableLanguage": ["English"]
-        },
-        "description": "Pedzaworks Digital Solutions is a software-first engineering company specializing in operational software systems, workflow automation, business platforms, custom software development, websites, and IoT solutions.",
-        "sameAs": [
-          "https://www.linkedin.com/company/pedzaworks",
-          "https://github.com/Pedzaworks"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.pedzaworks.com/#website",
+            "url": "https://www.pedzaworks.com/",
+            "name": "Pedzaworks Digital Solutions",
+            "alternateName": "Pedzaworks",
+            "inLanguage": "en",
+            "publisher": {
+              "@id": "https://www.pedzaworks.com/#organization"
+            }
+          },
+          {
+            "@type": [
+              "Organization",
+              "ProfessionalService"
+            ],
+            "@id": "https://www.pedzaworks.com/#organization",
+            "name": "Pedzaworks Digital Solutions",
+            "legalName": "Pedzaworks Digital Solutions Private Limited",
+            "alternateName": "Pedzaworks",
+            "url": "https://www.pedzaworks.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.pedzaworks.com/logo.png",
+              "width": 512,
+              "height": 512
+            },
+            "image": "https://www.pedzaworks.com/og-image.jpg",
+            "description": "Pedzaworks Digital Solutions is a software-first engineering company in Harare, Zimbabwe, specializing in operational software systems, workflow automation, business platforms, custom software development, websites, and IoT solutions.",
+            "email": "admin@pedzaworks.com",
+            "telephone": "+263718719892",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Harare",
+              "addressCountry": "ZW"
+            },
+            "areaServed": [
+              {
+                "@type": "Country",
+                "name": "Zimbabwe"
+              },
+              {
+                "@type": "Continent",
+                "name": "Africa"
+              }
+            ],
+            "knowsAbout": [
+              "Custom software development",
+              "Workflow automation",
+              "Business process automation",
+              "ERP and operational platforms",
+              "Systems integration",
+              "Web development",
+              "IoT solutions",
+              "Industrial automation"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+263718719892",
+              "email": "admin@pedzaworks.com",
+              "contactType": "customer service",
+              "areaServed": "ZW",
+              "availableLanguage": [
+                "English"
+              ]
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/pedzaworks",
+              "https://github.com/pedzaworks"
+            ]
+          }
         ]
       }
     </script>

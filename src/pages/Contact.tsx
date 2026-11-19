@@ -75,8 +75,8 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact"
-        description="Contact Pedzaworks Digital Solutions to discuss operational software systems, workflow platforms, connected infrastructure, and digital experiences tailored to your organisation."
+        title="Contact Us: Start a Software Project"
+        description="Talk to Pedzaworks about custom software, workflow automation, or IoT for your organisation. Email admin@pedzaworks.com or call +263 71 871 9892."
         url="https://www.pedzaworks.com/contact"
         keywords={[
           "contact Pedzaworks",
@@ -93,7 +93,7 @@ export default function Contact() {
             "Get in touch with Pedzaworks Digital Solutions to discuss operational software systems, workflow platforms, and connected infrastructure.",
         }}
       />
-      <main className="pw-contact">
+      <div className="pw-contact">
         <div className="pw-contact__bg-grid" />
         <div className="pw-contact__bg-glow" />
         <div className="pw-contact__top-rule" />
@@ -1341,7 +1341,7 @@ export default function Contact() {
           }
         }
       `}</style>
-      </main>
+      </div>
     </>
   );
 }

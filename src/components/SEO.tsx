@@ -20,6 +20,7 @@ interface SEOProps {
 }
 
 const BRAND_NAME = "Pedzaworks Digital Solutions";
+const TITLE_SUFFIX = "Pedzaworks";
 const DEFAULT_URL = "https://www.pedzaworks.com";
 const DEFAULT_IMAGE = "https://www.pedzaworks.com/og-image.jpg";
 const DEFAULT_IMAGE_ALT = "Pedzaworks Digital Solutions";
@@ -29,14 +30,12 @@ const buildTitle = (title: string) => {
   const normalized = title.trim();
   if (!normalized) return BRAND_NAME;
 
-  const lowerTitle = normalized.toLowerCase();
-  const lowerBrand = BRAND_NAME.toLowerCase();
-
-  if (lowerTitle === lowerBrand || lowerTitle.includes(lowerBrand)) {
+  // Titles that already name the brand are used as-is.
+  if (normalized.toLowerCase().includes(TITLE_SUFFIX.toLowerCase())) {
     return normalized;
   }
 
-  return `${normalized} | ${BRAND_NAME}`;
+  return `${normalized} | ${TITLE_SUFFIX}`;
 };
 
 export const SEO = ({
