@@ -108,18 +108,41 @@ body {
 }
 
 /* ===== SCROLLBAR ===== */
+/* Chromium / Safari / Edge */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
   background: var(--pw-bg-elevated);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
+  background: linear-gradient(180deg, var(--pw-red-hover), var(--pw-red));
   border-radius: 100px;
+  /* Transparent border makes the thumb look slimmer and float in the track */
+  border: 2px solid var(--pw-bg-elevated);
+  background-clip: padding-box;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--pw-red);
+  background-clip: padding-box;
+  border-width: 1px;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #a51818;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-corner {
+  background: var(--pw-bg-elevated);
+}
+
+/* Firefox (only where the WebKit pseudo-elements are unsupported, because
+   newer Chrome ignores ::-webkit-scrollbar once scrollbar-color is set) */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--pw-red) var(--pw-bg-elevated);
+  }
 }
 
 /* ===== TYPOGRAPHY ===== */

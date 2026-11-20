@@ -383,15 +383,16 @@
   flex-wrap: wrap;
 }
 
-.pw-footer__copyright {
-  font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.4);
+.pw-footer__company-name {
   margin: 0;
+  font-size: 0.8125rem;
   letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .pw-footer__legal-links {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.875rem;
   font-size: 0.8125rem;
@@ -479,6 +480,12 @@
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
+    text-align: center;
+  }
+
+  .pw-footer__legal-links {
+    justify-content: center;
+    row-gap: 0.35rem;
   }
 
   .pw-footer__tagline-band {
@@ -497,4 +504,4 @@
     transition: none !important;
     animation: none !important;
   }
-}
+}

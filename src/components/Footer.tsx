@@ -26,7 +26,7 @@ interface ContactItem {
   icon: React.ReactNode;
   label: string;
   href: string;
-  value: string;
+  value: React.ReactNode;
 }
 
 const CONTACT: ContactItem[] = [
@@ -90,7 +90,13 @@ const CONTACT: ContactItem[] = [
     ),
     label: "Address",
     href: `https://maps.google.com/?q=${encodeURIComponent(COMPANY_ADDRESS)}`,
-    value: COMPANY_ADDRESS,
+    value: (
+      <>
+        {COMPANY.addressLines[0]}
+        <br />
+        {COMPANY.addressLines.slice(1).join(", ")}
+      </>
+    ),
   },
 ];
 
@@ -260,13 +266,12 @@ const Footer: React.FC = () => {
 
         {/* Bottom strip */}
         <div className="pw-footer__bottom">
-          <p className="pw-footer__copyright">
-            © {year} {COMPANY.legalName}. All rights reserved.
-            <br />
-            Company Reg. No. {COMPANY.registrationNumber} · Registered office:{" "}
-            {COMPANY_ADDRESS}
+          <p className="pw-footer__company-name">
+            © {year} {COMPANY.legalName}
           </p>
           <div className="pw-footer__legal-links">
+            <span>Company Reg. No. {COMPANY.registrationNumber}</span>
+            <span aria-hidden="true">·</span>
             <a href="/privacy-policy" className="pw-footer__legal-link">
               Privacy Policy
             </a>
