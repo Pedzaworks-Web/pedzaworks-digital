@@ -5,9 +5,11 @@ import {
   CalendarClock,
   ClipboardList,
   ChevronDown,
+  Building2,
 } from "lucide-react";
 import SEO from "../components/SEO";
 import { ENQUIRY_EMAIL, openEnquiryEmail } from "../lib/enquiry";
+import { COMPANY, COMPANY_ADDRESS, COMPANY_PHONE_HREF } from "../lib/company";
 export default function Contact() {
   const revealRefs = useRef<HTMLElement[]>([]);
   const [submitted, setSubmitted] = useState(false);
@@ -91,6 +93,7 @@ export default function Contact() {
           url: "https://www.pedzaworks.com/contact",
           description:
             "Get in touch with Pedzaworks Digital Solutions to discuss operational software systems, workflow platforms, and connected infrastructure.",
+          mainEntity: { "@id": "https://www.pedzaworks.com/#organization" },
         }}
       />
       <div className="pw-contact">
@@ -328,6 +331,51 @@ export default function Contact() {
                       </div>
                     </li>
                   </ol>
+
+                  <section
+                    className="pw-contact__company"
+                    aria-labelledby="company-details-title"
+                  >
+                    <h3
+                      id="company-details-title"
+                      className="pw-contact__company-title"
+                    >
+                      <Building2 size={15} strokeWidth={1.8} />
+                      Company details
+                    </h3>
+                    <dl className="pw-contact__company-list">
+                      <div>
+                        <dt>Legal name</dt>
+                        <dd>{COMPANY.legalName}</dd>
+                      </div>
+                      <div>
+                        <dt>Company Reg. No.</dt>
+                        <dd>{COMPANY.registrationNumber}</dd>
+                      </div>
+                      <div>
+                        <dt>Registered office</dt>
+                        <dd>
+                          <address>{COMPANY_ADDRESS}</address>
+                        </dd>
+                      </div>
+                      <div>
+                        <dt>Phone</dt>
+                        <dd>
+                          <a href={COMPANY_PHONE_HREF}>{COMPANY.phoneDisplay}</a>
+                        </dd>
+                      </div>
+                      <div>
+                        <dt>Email</dt>
+                        <dd>
+                          <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+                        </dd>
+                      </div>
+                      <div>
+                        <dt>Business hours</dt>
+                        <dd>Mon–Fri, 08:00–17:00 (CAT)</dd>
+                      </div>
+                    </dl>
+                  </section>
 
                   <button
                     type="button"
@@ -597,6 +645,64 @@ export default function Contact() {
           color: var(--pw-text-2);
           font-size: 1.02rem;
           line-height: 1.85;
+        }
+
+        .pw-contact__company {
+          position: relative;
+          margin: 4px 0 20px;
+          padding: 16px 18px;
+          border: 1px solid var(--pw-border);
+          border-radius: 16px;
+          background: var(--pw-bg-base);
+        }
+
+        .pw-contact__company-title {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin: 0 0 12px;
+          font-size: 0.82rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: var(--pw-text-primary);
+        }
+
+        .pw-contact__company-title svg {
+          color: var(--pw-red);
+        }
+
+        .pw-contact__company-list {
+          display: grid;
+          gap: 10px;
+          margin: 0;
+        }
+
+        .pw-contact__company-list dt {
+          font-size: 0.72rem;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: var(--pw-text-muted);
+        }
+
+        .pw-contact__company-list dd {
+          margin: 2px 0 0;
+          font-size: 0.9rem;
+          color: var(--pw-text-primary);
+          overflow-wrap: anywhere;
+        }
+
+        .pw-contact__company-list address {
+          font-style: normal;
+        }
+
+        .pw-contact__company-list a {
+          color: var(--pw-red);
+          text-decoration: none;
+        }
+
+        .pw-contact__company-list a:hover {
+          text-decoration: underline;
         }
 
         .pw-contact__form-grid {

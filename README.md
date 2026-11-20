@@ -1,6 +1,6 @@
 # Pedzaworks Digital Solutions — Website
 
-The marketing website for [Pedzaworks Digital Solutions Private Limited](https://www.pedzaworks.com), a software-first engineering company in Harare, Zimbabwe. Pedzaworks builds operational software systems, workflow automation, business platforms, websites, and IoT and connected infrastructure.
+The marketing website for [Pedzaworks Digital Solutions (Private) Limited](https://www.pedzaworks.com), a software-first engineering company in Harare, Zimbabwe. Pedzaworks builds operational software systems, workflow automation, business platforms, websites, and IoT and connected infrastructure.
 
 ## Tech Stack
 
@@ -122,6 +122,6 @@ Unknown paths get `404.html` with a 404 status.
 
 ## Contact
 
-admin@pedzaworks.com · +263 71 871 9892 · Harare, Zimbabwe
+admin@pedzaworks.com · +263 71 871 9892 · 14382 Kuwadzana Extension, Harare, Zimbabwe
 
-© Pedzaworks Digital Solutions Private Limited. All rights reserved.
+© Pedzaworks Digital Solutions (Private) Limited (Company Reg. No. 78154A0212026). All rights reserved.

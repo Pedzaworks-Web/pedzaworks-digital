@@ -1,7 +1,9 @@
 // src/pages/PrivacyPolicy.tsx
 import LegalPage, { type LegalSection } from "../components/LegalPage";
 
-const CONTACT_EMAIL = "admin@pedzaworks.com";
+import { COMPANY, COMPANY_PHONE_HREF } from "../lib/company";
+
+const CONTACT_EMAIL = COMPANY.email;
 
 const sections: LegalSection[] = [
   {
@@ -10,8 +12,9 @@ const sections: LegalSection[] = [
     body: (
       <>
         <p>
-          Pedzaworks Digital Solutions Private Limited ("Pedzaworks", "we", "us", "our") is a
-          software engineering company based in Harare, Zimbabwe. We operate
+          Pedzaworks Digital Solutions (Private) Limited ("Pedzaworks", "we", "us", "our") is a
+          software engineering company incorporated in Zimbabwe (Company
+          Registration No. 78154A0212026) and based in Harare. We operate
           the website at <strong>www.pedzaworks.com</strong> (the "Site").
         </p>
         <p>
@@ -237,13 +240,19 @@ const sections: LegalSection[] = [
       <>
         <p>Questions about this policy or your information can be sent to:</p>
         <p>
-          <strong>Pedzaworks Digital Solutions Private Limited</strong>
+          <strong>{COMPANY.legalName}</strong>
           <br />
-          Harare, Zimbabwe
+          Company Reg. No. {COMPANY.registrationNumber}
+          {COMPANY.addressLines.map((line) => (
+            <span key={line}>
+              <br />
+              {line}
+            </span>
+          ))}
           <br />
           Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           <br />
-          Phone: <a href="tel:+263718719892">+263 71 871 9892</a>
+          Phone: <a href={COMPANY_PHONE_HREF}>{COMPANY.phoneDisplay}</a>
         </p>
       </>
     ),

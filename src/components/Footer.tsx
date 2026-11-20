@@ -1,6 +1,7 @@
 // src/components/Footer.tsx
 import React from "react";
 import "./styles/footer.css";
+import { COMPANY, COMPANY_ADDRESS, COMPANY_PHONE_HREF } from "../lib/company";
 
 /* ── Data ── */
 
@@ -13,7 +14,7 @@ const SOLUTIONS = [
   { label: "Connected Infrastructure", href: "/industries#infra" },
 ];
 
-const COMPANY = [
+const COMPANY_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
   { label: "Projects", href: "/#systems-showcase" },
@@ -47,8 +48,8 @@ const CONTACT: ContactItem[] = [
       </svg>
     ),
     label: "Email",
-    href: "mailto:admin@pedzaworks.com",
-    value: "admin@pedzaworks.com",
+    href: `mailto:${COMPANY.email}`,
+    value: COMPANY.email,
   },
   {
     icon: (
@@ -67,8 +68,8 @@ const CONTACT: ContactItem[] = [
       </svg>
     ),
     label: "Phone",
-    href: "tel:+263718719892",
-    value: "+263 71 871 9892",
+    href: COMPANY_PHONE_HREF,
+    value: COMPANY.phoneDisplay,
   },
   {
     icon: (
@@ -87,9 +88,9 @@ const CONTACT: ContactItem[] = [
         <circle cx="12" cy="10" r="3" />
       </svg>
     ),
-    label: "Location",
-    href: "https://maps.google.com/?q=Harare,Zimbabwe",
-    value: "Harare, Zimbabwe",
+    label: "Address",
+    href: `https://maps.google.com/?q=${encodeURIComponent(COMPANY_ADDRESS)}`,
+    value: COMPANY_ADDRESS,
   },
 ];
 
@@ -210,7 +211,7 @@ const Footer: React.FC = () => {
           {/* Company */}
           <FooterCol heading="Company">
             <ul className="pw-footer__link-list" role="list">
-              {COMPANY.map(({ label, href }) => (
+              {COMPANY_LINKS.map(({ label, href }) => (
                 <li key={href}>
                   <a href={href} className="pw-footer__link">
                     <span className="pw-footer__link-arrow" aria-hidden="true">
@@ -260,7 +261,10 @@ const Footer: React.FC = () => {
         {/* Bottom strip */}
         <div className="pw-footer__bottom">
           <p className="pw-footer__copyright">
-            © {year} Pedzaworks Digital Solutions Private Limited. All rights reserved.
+            © {year} {COMPANY.legalName}. All rights reserved.
+            <br />
+            Company Reg. No. {COMPANY.registrationNumber} · Registered office:{" "}
+            {COMPANY_ADDRESS}
           </p>
           <div className="pw-footer__legal-links">
             <a href="/privacy-policy" className="pw-footer__legal-link">

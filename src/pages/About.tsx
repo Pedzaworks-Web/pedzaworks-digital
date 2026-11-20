@@ -1351,6 +1351,9 @@ const About: React.FC = () => {
                   Mapedzamombe, a builder, systems engineer, and entrepreneur
                   focused on developing operational software systems and
                   connected digital infrastructure for modern organizations.
+                  The company is registered in Zimbabwe as Pedzaworks Digital
+                  Solutions (Private) Limited (Company Reg. No. 78154A0212026),
+                  incorporated on 21 January 2026.
                 </p>
 
                 <div className="pw-founder-divider" aria-hidden="true">
